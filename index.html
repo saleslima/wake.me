@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Sistema de Transporte e Alerta</title>
+    <!-- Ícones para PWA -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚇</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚇</text></svg>">
+    <link rel="manifest" href="data:application/json,{
+        'name': 'Sistema de Transporte SP',
+        'short_name': 'TransporteSP',
+        'description': 'Sistema de alerta para estações de transporte',
+        'start_url': '/',
+        'display': 'standalone',
+        'background_color': '#1a237e',
+        'theme_color': '#4a148c',
+        'icons': [
+            {
+                'src': 'data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><rect width=\"100\" height=\"100\" rx=\"20\" fill=\"%234a148c\"/><text x=\"50\" y=\"70\" font-family=\"Arial\" font-size=\"60\" text-anchor=\"middle\" fill=\"white\">🚇</text></svg>',
+                'sizes': '100x100',
+                'type': 'image/svg+xml'
+            }
+        ]
+    }">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -43,6 +62,26 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         
         h1 {
@@ -920,13 +959,77 @@
             margin-bottom: 6px;
             line-height: 1.4;
         }
+        
+        /* Instruções para instalar PWA */
+        .pwa-install-btn {
+            background: linear-gradient(to right, #FF4081, #F50057);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            width: 100%;
+            touch-action: manipulation;
+        }
+        
+        .pwa-install-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .pwa-instructions {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 64, 129, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #FF4081;
+        }
+        
+        .pwa-instructions h4 {
+            color: #FF4081;
+            margin-bottom: 10px;
+        }
+        
+        .pwa-instructions ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .pwa-instructions li {
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-map-marked-alt"></i> Sistema de Transporte Inteligente</h1>
-            <p class="subtitle">Encontre estações de trem e metrô, cadastre endereços e receba alertas de proximidade (200m)</p>
+            <div class="logo-container">
+                <div class="logo-icon">🚇</div>
+                <div>
+                    <h1>Sistema de Transporte SP</h1>
+                    <p class="subtitle">Metrô e CPTM com alerta de proximidade (200m)</p>
+                </div>
+            </div>
+            <button class="pwa-install-btn" id="installPWA">
+                <i class="fas fa-download"></i> Instalar App no Celular
+            </button>
+            <div id="pwaInstructions" class="pwa-instructions">
+                <h4><i class="fas fa-mobile-alt"></i> Como instalar:</h4>
+                <ul>
+                    <li><strong>Android Chrome:</strong> Toque em "Instalar App" ou ⋮ → "Adicionar à tela inicial"</li>
+                    <li><strong>iPhone Safari:</strong> Toque em <i class="fas fa-share"></i> → "Adicionar à Tela de Início"</li>
+                    <li><strong>Outros navegadores:</strong> Procure por "Instalar aplicativo" ou "Adicionar à tela inicial"</li>
+                </ul>
+                <p>Após instalar, o app aparecerá com ícone 🚇 na sua tela inicial!</p>
+            </div>
         </header>
         
         <div class="main-content">
@@ -939,7 +1042,7 @@
                     <button class="transport-btn" id="cptmBtn">
                         <div class="btn-content">
                             <i class="fas fa-train"></i>
-                            <span>CPTM (Trens Metropolitanos)</span>
+                            <span>CPTM / ViaMobilidade</span>
                         </div>
                         <div class="btn-arrow"><i class="fas fa-chevron-right"></i></div>
                     </button>
@@ -947,7 +1050,7 @@
                     <button class="transport-btn" id="metroBtn">
                         <div class="btn-content">
                             <i class="fas fa-subway"></i>
-                            <span>Metrô</span>
+                            <span>Metrô de São Paulo</span>
                         </div>
                         <div class="btn-arrow"><i class="fas fa-chevron-right"></i></div>
                     </button>
@@ -963,40 +1066,47 @@
                 
                 <!-- Container para linhas do Metrô -->
                 <div id="metroLines" class="options-container">
-                    <h3>Linhas do Metrô de São Paulo</h3>
-                    <div class="option-item line-item" data-type="metro" data-line="Linha 1-Azul">
+                    <h3>🚇 Linhas do Metrô de São Paulo</h3>
+                    <div class="option-item line-item" data-type="metro" data-line="Linha 1 – Azul">
                         <div class="line-color" style="background-color: #005CA9;"></div>
                         <div>
-                            <strong>Linha 1-Azul</strong>
-                            <div>Tucuruvi ↔ Jabaquara</div>
+                            <strong>Linha 1 – Azul</strong>
+                            <div>Jabaquara ↔ Tucuruvi</div>
                         </div>
                     </div>
-                    <div class="option-item line-item" data-type="metro" data-line="Linha 2-Verde">
+                    <div class="option-item line-item" data-type="metro" data-line="Linha 2 – Verde">
                         <div class="line-color" style="background-color: #00AA5B;"></div>
                         <div>
-                            <strong>Linha 2-Verde</strong>
-                            <div>Vila Madalena ↔ Vila Prudente</div>
+                            <strong>Linha 2 – Verde</strong>
+                            <div>Vila Prudente ↔ Vila Madalena</div>
                         </div>
                     </div>
-                    <div class="option-item line-item" data-type="metro" data-line="Linha 3-Vermelha">
+                    <div class="option-item line-item" data-type="metro" data-line="Linha 3 – Vermelha">
                         <div class="line-color" style="background-color: #EE3F23;"></div>
                         <div>
-                            <strong>Linha 3-Vermelha</strong>
+                            <strong>Linha 3 – Vermelha</strong>
                             <div>Corinthians-Itaquera ↔ Palmeiras-Barra Funda</div>
                         </div>
                     </div>
-                    <div class="option-item line-item" data-type="metro" data-line="Linha 4-Amarela">
+                    <div class="option-item line-item" data-type="metro" data-line="Linha 4 – Amarela">
                         <div class="line-color" style="background-color: #FFD100;"></div>
                         <div>
-                            <strong>Linha 4-Amarela</strong>
+                            <strong>Linha 4 – Amarela</strong>
                             <div>Luz ↔ Vila Sônia</div>
                         </div>
                     </div>
-                    <div class="option-item line-item" data-type="metro" data-line="Linha 5-Lilás">
+                    <div class="option-item line-item" data-type="metro" data-line="Linha 5 – Lilás">
                         <div class="line-color" style="background-color: #8B499A;"></div>
                         <div>
-                            <strong>Linha 5-Lilás</strong>
+                            <strong>Linha 5 – Lilás</strong>
                             <div>Capão Redondo ↔ Chácara Klabin</div>
+                        </div>
+                    </div>
+                    <div class="option-item line-item" data-type="metro" data-line="Linha 15 – Prata">
+                        <div class="line-color" style="background-color: #A9A9A9;"></div>
+                        <div>
+                            <strong>Linha 15 – Prata</strong>
+                            <div>Vila Prudente ↔ Jardim Colonial</div>
                         </div>
                     </div>
                 </div>
@@ -1006,40 +1116,54 @@
                 
                 <!-- Container para linhas da CPTM -->
                 <div id="cptmLines" class="options-container">
-                    <h3>Linhas da CPTM (Trens Metropolitanos)</h3>
-                    <div class="option-item line-item" data-type="cptm" data-line="Linha 7-Rubi">
+                    <h3>🚆 Linhas da CPTM / ViaMobilidade</h3>
+                    <div class="option-item line-item" data-type="cptm" data-line="Linha 7 – Rubi">
                         <div class="line-color" style="background-color: #A60C1E;"></div>
                         <div>
-                            <strong>Linha 7-Rubi</strong>
-                            <div>Luz ↔ Francisco Morato / Jundiaí</div>
+                            <strong>Linha 7 – Rubi</strong>
+                            <div>Brás ↔ Jundiaí</div>
                         </div>
                     </div>
-                    <div class="option-item line-item" data-type="cptm" data-line="Linha 8-Diamante">
+                    <div class="option-item line-item" data-type="cptm" data-line="Linha 8 – Diamante">
                         <div class="line-color" style="background-color: #00A65A;"></div>
                         <div>
-                            <strong>Linha 8-Diamante</strong>
-                            <div>Júlio Prestes ↔ Itapevi / Amador Bueno</div>
+                            <strong>Linha 8 – Diamante</strong>
+                            <div>Júlio Prestes ↔ Itapevi</div>
                         </div>
                     </div>
-                    <div class="option-item line-item" data-type="cptm" data-line="Linha 9-Esmeralda">
+                    <div class="option-item line-item" data-type="cptm" data-line="Linha 9 – Esmeralda">
                         <div class="line-color" style="background-color: #0C9444;"></div>
                         <div>
-                            <strong>Linha 9-Esmeralda</strong>
-                            <div>Osasco ↔ Grajaú</div>
+                            <strong>Linha 9 – Esmeralda</strong>
+                            <div>Osasco ↔ Varginha</div>
                         </div>
                     </div>
-                    <div class="option-item line-item" data-type="cptm" data-line="Linha 10-Turquesa">
+                    <div class="option-item line-item" data-type="cptm" data-line="Linha 10 – Turquesa">
                         <div class="line-color" style="background-color: #0D7AB8;"></div>
                         <div>
-                            <strong>Linha 10-Turquesa</strong>
-                            <div>Luz ↔ Rio Grande da Serra</div>
+                            <strong>Linha 10 – Turquesa</strong>
+                            <div>Brás ↔ Rio Grande da Serra</div>
                         </div>
                     </div>
-                    <div class="option-item line-item" data-type="cptm" data-line="Linha 11-Coral">
+                    <div class="option-item line-item" data-type="cptm" data-line="Linha 11 – Coral">
                         <div class="line-color" style="background-color: #F58220;"></div>
                         <div>
-                            <strong>Linha 11-Coral</strong>
-                            <div>Luz ↔ Estudantes</div>
+                            <strong>Linha 11 – Coral</strong>
+                            <div>Luz ↔ Estudantes (Mogi das Cruzes)</div>
+                        </div>
+                    </div>
+                    <div class="option-item line-item" data-type="cptm" data-line="Linha 12 – Safira">
+                        <div class="line-color" style="background-color: #1B48A0;"></div>
+                        <div>
+                            <strong>Linha 12 – Safira</strong>
+                            <div>Brás ↔ Calmon Viana</div>
+                        </div>
+                    </div>
+                    <div class="option-item line-item" data-type="cptm" data-line="Linha 13 – Jade">
+                        <div class="line-color" style="background-color: #00A88F;"></div>
+                        <div>
+                            <strong>Linha 13 – Jade</strong>
+                            <div>Engenheiro Goulart ↔ Aeroporto Guarulhos</div>
                         </div>
                     </div>
                 </div>
@@ -1247,7 +1371,7 @@
         
         <footer>
             <p>Sistema de Transporte Inteligente &copy; 2023 - Desenvolvido para alertas de proximidade</p>
-            <p>O sistema alerta quando você está a 200 metros do destino selecionado</p>
+            <p>Metrô SP e CPTM - Alerta automático a 200 metros do destino</p>
         </footer>
     </div>
     
@@ -1279,7 +1403,6 @@
     </audio>
     
     <script>
-        // Código JavaScript permanece EXATAMENTE o mesmo
         // Elementos do DOM
         const cptmBtn = document.getElementById('cptmBtn');
         const metroBtn = document.getElementById('metroBtn');
@@ -1312,6 +1435,8 @@
         const mapCoordinates = document.getElementById('mapCoordinates');
         const startMonitoringBtn = document.getElementById('startMonitoring');
         const simulationSpeed = document.getElementById('simulationSpeed');
+        const installPwaBtn = document.getElementById('installPWA');
+        const pwaInstructions = document.getElementById('pwaInstructions');
         
         // Elementos de status
         const transportTypeEl = document.getElementById('transportType');
@@ -1332,97 +1457,230 @@
         const numeroInput = document.getElementById('numero');
         const complementoInput = document.getElementById('complemento');
         
-        // Dados das estações por linha com coordenadas reais aproximadas em São Paulo
+        // Dados COMPLETOS das estações por linha com coordenadas reais aproximadas em São Paulo
         const metroStationsData = {
-            "Linha 1-Azul": [
-                {name: "Tucuruvi", lat: -23.4804, lng: -46.6028, address: "Av. Dr. Antonio Maria Laet, Tucuruvi"},
-                {name: "Parada Inglesa", lat: -23.4894, lng: -46.6094, address: "Av. Dr. Antonio Maria Laet, Parada Inglesa"},
-                {name: "Jardim São Paulo", lat: -23.4975, lng: -46.6161, address: "Av. Leôncio de Magalhães, Jardim São Paulo"},
-                {name: "Santana", lat: -23.5056, lng: -46.6228, address: "Av. Cruzeiro do Sul, Santana"},
-                {name: "Carandiru", lat: -23.5137, lng: -46.6295, address: "Av. Cruzeiro do Sul, Carandiru"},
-                {name: "Portuguesa-Tietê", lat: -23.5218, lng: -46.6362, address: "Av. Cruzeiro do Sul, Portuguesa-Tietê"},
-                {name: "Armênia", lat: -23.5299, lng: -46.6429, address: "Av. Cruzeiro do Sul, Armênia"},
-                {name: "Tiradentes", lat: -23.5380, lng: -46.6496, address: "Av. Tiradentes, Luz"},
-                {name: "Luz", lat: -23.5350, lng: -46.6350, address: "Praça da Luz, Luz"},
-                {name: "São Bento", lat: -23.5431, lng: -46.6340, address: "Largo São Bento, Centro"},
-                {name: "Sé", lat: -23.5505, lng: -46.6333, address: "Praça da Sé, Sé"},
-                {name: "Liberdade", lat: -23.5570, lng: -46.6350, address: "Praça da Liberdade, Liberdade"},
-                {name: "São Joaquim", lat: -23.5635, lng: -46.6367, address: "Rua São Joaquim, Liberdade"},
-                {name: "Vergueiro", lat: -23.5700, lng: -46.6384, address: "Av. Vergueiro, Liberdade"},
-                {name: "Paraíso", lat: -23.5765, lng: -46.6401, address: "Rua Vergueiro, Paraíso"},
-                {name: "Ana Rosa", lat: -23.5830, lng: -46.6418, address: "Av. Vergueiro, Vila Mariana"},
-                {name: "Vila Mariana", lat: -23.5895, lng: -46.6435, address: "Av. Brigadeiro Luís Antônio, Vila Mariana"},
-                {name: "Santa Cruz", lat: -23.5960, lng: -46.6452, address: "Rua Domingos de Morais, Vila Mariana"},
-                {name: "Praça da Árvore", lat: -23.6025, lng: -46.6469, address: "Rua Loefgren, Vila Mariana"},
-                {name: "Saúde", lat: -23.6090, lng: -46.6486, address: "Av. Jabaquara, Saúde"},
-                {name: "São Judas", lat: -23.6155, lng: -46.6503, address: "Av. Jabaquara, São Judas"},
-                {name: "Conceição", lat: -23.6220, lng: -46.6520, address: "Av. Engenheiro Armando de Arruda Pereira, Jabaquara"},
-                {name: "Jabaquara", lat: -23.6285, lng: -46.6537, address: "Av. Engenheiro Armando de Arruda Pereira, Jabaquara"}
+            "Linha 1 – Azul": [
+                {name: "Jabaquara", lat: -23.648, lng: -46.654, address: "Av. Engenheiro Armando de Arruda Pereira, Jabaquara"},
+                {name: "Conceição", lat: -23.641, lng: -46.652, address: "Av. Engenheiro Armando de Arruda Pereira, Jabaquara"},
+                {name: "São Judas", lat: -23.624, lng: -46.651, address: "Av. Jabaquara, Saúde"},
+                {name: "Saúde", lat: -23.617, lng: -46.650, address: "Av. Jabaquara, Saúde"},
+                {name: "Praça da Árvore", lat: -23.611, lng: -46.647, address: "Rua Loefgren, Vila Mariana"},
+                {name: "Santa Cruz", lat: -23.605, lng: -46.646, address: "Rua Domingos de Morais, Vila Mariana"},
+                {name: "Vila Mariana", lat: -23.598, lng: -46.644, address: "Av. Brigadeiro Luís Antônio, Vila Mariana"},
+                {name: "Ana Rosa", lat: -23.592, lng: -46.642, address: "Av. Vergueiro, Vila Mariana"},
+                {name: "Paraíso", lat: -23.585, lng: -46.641, address: "Rua Vergueiro, Paraíso"},
+                {name: "Vergueiro", lat: -23.579, lng: -46.639, address: "Av. Vergueiro, Liberdade"},
+                {name: "São Joaquim", lat: -23.572, lng: -46.637, address: "Rua São Joaquim, Liberdade"},
+                {name: "Sé", lat: -23.5505, lng: -46.6333, address: "Praça da Sé, Centro"},
+                {name: "Luz", lat: -23.535, lng: -46.635, address: "Praça da Luz, Bom Retiro"},
+                {name: "Tiradentes", lat: -23.531, lng: -46.636, address: "Av. Tiradentes, Bom Retiro"},
+                {name: "Armênia", lat: -23.529, lng: -46.637, address: "Av. Cruzeiro do Sul, Bom Retiro"},
+                {name: "Portuguesa-Tietê", lat: -23.521, lng: -46.639, address: "Av. Cruzeiro do Sul, Bom Retiro"},
+                {name: "Carandiru", lat: -23.513, lng: -46.641, address: "Av. Cruzeiro do Sul, Carandiru"},
+                {name: "Santana", lat: -23.505, lng: -46.642, address: "Av. Cruzeiro do Sul, Santana"},
+                {name: "Jardim São Paulo", lat: -23.497, lng: -46.644, address: "Av. Leôncio de Magalhães, Jardim São Paulo"},
+                {name: "Parada Inglesa", lat: -23.489, lng: -46.645, address: "Av. Dr. Antonio Maria Laet, Parada Inglesa"},
+                {name: "Tucuruvi", lat: -23.480, lng: -46.647, address: "Av. Dr. Antonio Maria Laet, Tucuruvi"}
             ],
-            "Linha 2-Verde": [
-                {name: "Vila Madalena", lat: -23.5469, lng: -46.6938, address: "Praça Doutor João Mendes, Vila Madalena"},
-                {name: "Sumaré", lat: -23.5480, lng: -46.6770, address: "Rua Doutor César, Sumaré"},
-                {name: "Clínicas", lat: -23.5550, lng: -46.6700, address: "Av. Dr. Enéas Carvalho de Aguiar, Cerqueira César"},
-                {name: "Consolação", lat: -23.5530, lng: -46.6580, address: "Rua da Consolação, Consolação"},
-                {name: "Trianon-Masp", lat: -23.5610, lng: -46.6550, address: "Av. Paulista, Bela Vista"},
-                {name: "Brigadeiro", lat: -23.5680, lng: -46.6520, address: "Av. Brigadeiro Luís Antônio, Bela Vista"},
-                {name: "Paraíso", lat: -23.5765, lng: -46.6401, address: "Rua Vergueiro, Paraíso"},
-                {name: "Ana Rosa", lat: -23.5830, lng: -46.6418, address: "Av. Vergueiro, Vila Mariana"},
-                {name: "Chácara Klabin", lat: -23.5900, lng: -46.6300, address: "Rua Doutor César, Chácara Klabin"},
-                {name: "Santos-Imigrantes", lat: -23.5970, lng: -46.6250, address: "Av. dos Imigrantes, Vila Mariana"},
-                {name: "Alto do Ipiranga", lat: -23.6040, lng: -46.6200, address: "Av. do Estado, Ipiranga"},
-                {name: "Sacomã", lat: -23.6110, lng: -46.6150, address: "Av. do Estado, Sacomã"},
-                {name: "Tamanduateí", lat: -23.6180, lng: -46.6100, address: "Av. do Estado, Tamanduateí"},
-                {name: "Vila Prudente", lat: -23.6250, lng: -46.6050, address: "Av. do Estado, Vila Prudente"}
+            "Linha 2 – Verde": [
+                {name: "Vila Prudente", lat: -23.625, lng: -46.605, address: "Av. do Estado, Vila Prudente"},
+                {name: "Tamanduateí", lat: -23.618, lng: -46.610, address: "Av. do Estado, Ipiranga"},
+                {name: "Sacomã", lat: -23.611, lng: -46.615, address: "Av. do Estado, Sacomã"},
+                {name: "Alto do Ipiranga", lat: -23.604, lng: -46.620, address: "Av. do Estado, Ipiranga"},
+                {name: "Santos-Imigrantes", lat: -23.597, lng: -46.625, address: "Av. dos Imigrantes, Vila Mariana"},
+                {name: "Chácara Klabin", lat: -23.590, lng: -46.630, address: "Rua Doutor César, Vila Mariana"},
+                {name: "Ana Rosa", lat: -23.592, lng: -46.642, address: "Av. Vergueiro, Vila Mariana"},
+                {name: "Paraíso", lat: -23.585, lng: -46.641, address: "Rua Vergueiro, Paraíso"},
+                {name: "Brigadeiro", lat: -23.577, lng: -46.650, address: "Av. Brigadeiro Luís Antônio, Bela Vista"},
+                {name: "Trianon-Masp", lat: -23.570, lng: -46.655, address: "Av. Paulista, Bela Vista"},
+                {name: "Consolação", lat: -23.562, lng: -46.658, address: "Rua da Consolação, Consolação"},
+                {name: "Clínicas", lat: -23.555, lng: -46.670, address: "Av. Dr. Enéas Carvalho de Aguiar, Cerqueira César"},
+                {name: "Sumaré", lat: -23.556, lng: -46.677, address: "Rua Doutor César, Sumaré"},
+                {name: "Vila Madalena", lat: -23.547, lng: -46.694, address: "Praça Doutor João Mendes, Vila Madalena"}
+            ],
+            "Linha 3 – Vermelha": [
+                {name: "Corinthians-Itaquera", lat: -23.543, lng: -46.472, address: "Av. José Pinheiro Borges, Itaquera"},
+                {name: "Artur Alvim", lat: -23.541, lng: -46.478, address: "Rua Alto Artur Alvim, Artur Alvim"},
+                {name: "Patriarca", lat: -23.539, lng: -46.483, address: "Rua da Mooca, Patriarca"},
+                {name: "Guilhermina-Esperança", lat: -23.537, lng: -46.489, address: "Rua Dr. Assis Guimarães, Vila Guilhermina"},
+                {name: "Vila Matilde", lat: -23.535, lng: -46.494, address: "Rua Cotoxó, Vila Matilde"},
+                {name: "Penha", lat: -23.533, lng: -46.500, address: "Rua Padre Francisco das Chagas, Penha"},
+                {name: "Carrão", lat: -23.531, lng: -46.505, address: "Rua Tuiuti, Carrão"},
+                {name: "Tatuapé", lat: -23.540, lng: -46.576, address: "Rua Tuiuti, Tatuapé"},
+                {name: "Belém", lat: -23.538, lng: -46.582, address: "Av. Celso Garcia, Belém"},
+                {name: "Bresser-Mooca", lat: -23.545, lng: -46.615, address: "Rua dos Trilhos, Mooca"},
+                {name: "Brás", lat: -23.545, lng: -46.615, address: "Av. Rangel Pestana, Brás"},
+                {name: "Pedro II", lat: -23.547, lng: -46.619, address: "Rua Alfredo Maia, Brás"},
+                {name: "Sé", lat: -23.5505, lng: -46.6333, address: "Praça da Sé, Centro"},
+                {name: "República", lat: -23.546, lng: -46.643, address: "Praça da República, Centro"},
+                {name: "Anhangabaú", lat: -23.548, lng: -46.640, address: "Viaduto do Chá, Centro"},
+                {name: "Santa Cecília", lat: -23.535, lng: -46.650, address: "Rua Santa Cecília, Santa Cecília"},
+                {name: "Marechal Deodoro", lat: -23.532, lng: -46.655, address: "Rua Santa Cecília, Santa Cecília"},
+                {name: "Palmeiras-Barra Funda", lat: -23.526, lng: -46.667, address: "Av. Marquês de São Vicente, Barra Funda"}
+            ],
+            "Linha 4 – Amarela": [
+                {name: "Luz", lat: -23.535, lng: -46.635, address: "Praça da Luz, Bom Retiro"},
+                {name: "República", lat: -23.546, lng: -46.643, address: "Praça da República, Centro"},
+                {name: "Higienópolis-Mackenzie", lat: -23.548, lng: -46.650, address: "Rua da Consolação, Consolação"},
+                {name: "Paulista", lat: -23.561, lng: -46.655, address: "Av. Paulista, Bela Vista"},
+                {name: "Fradique Coutinho", lat: -23.568, lng: -46.682, address: "Rua Fradique Coutinho, Pinheiros"},
+                {name: "Faria Lima", lat: -23.569, lng: -46.692, address: "Av. Brigadeiro Faria Lima, Pinheiros"},
+                {name: "Pinheiros", lat: -23.568, lng: -46.702, address: "Av. das Nações Unidas, Pinheiros"},
+                {name: "Butantã", lat: -23.572, lng: -46.710, address: "Av. Vital Brasil, Butantã"},
+                {name: "São Paulo-Morumbi", lat: -23.583, lng: -46.720, address: "Av. Jorge João Saad, Morumbi"},
+                {name: "Vila Sônia", lat: -23.592, lng: -46.730, address: "Rua Aspicuelta, Vila Sônia"}
+            ],
+            "Linha 5 – Lilás": [
+                {name: "Capão Redondo", lat: -23.668, lng: -46.768, address: "Av. Carlos Caldeira Filho, Capão Redondo"},
+                {name: "Campo Limpo", lat: -23.652, lng: -46.758, address: "Av. Carlos Caldeira Filho, Campo Limpo"},
+                {name: "Vila das Belezas", lat: -23.636, lng: -46.748, address: "Av. Professor José Maria de Azevedo, Vila Andrade"},
+                {name: "Giovanni Gronchi", lat: -23.628, lng: -46.738, address: "Av. Giovanni Gronchi, Vila Andrade"},
+                {name: "Santo Amaro", lat: -23.650, lng: -46.722, address: "Av. Santo Amaro, Santo Amaro"},
+                {name: "Largo Treze", lat: -23.647, lng: -46.714, address: "Rua Largo Treze de Maio, Santo Amaro"},
+                {name: "Adolfo Pinheiro", lat: -23.644, lng: -46.706, address: "Rua Adolfo Pinheiro, Santo Amaro"},
+                {name: "Alto da Boa Vista", lat: -23.641, lng: -46.698, address: "Rua Professor Daijiro Matsuda, Alto da Boa Vista"},
+                {name: "Borba Gato", lat: -23.638, lng: -46.690, address: "Av. Santo Amaro, Vila Olímpia"},
+                {name: "Brooklin", lat: -23.635, lng: -46.682, address: "Rua Barão do Triunfo, Brooklin"},
+                {name: "Campo Belo", lat: -23.632, lng: -46.674, address: "Rua Jurandir, Campo Belo"},
+                {name: "Eucaliptos", lat: -23.629, lng: -46.666, address: "Rua Eucaliptos, Moema"},
+                {name: "Moema", lat: -23.606, lng: -46.664, address: "Av. Moema, Moema"},
+                {name: "AACD-Servidor", lat: -23.599, lng: -46.662, address: "Av. Indianópolis, Moema"},
+                {name: "Hospital São Paulo", lat: -23.592, lng: -46.660, address: "Rua Napoleão de Barros, Vila Clementino"},
+                {name: "Santa Cruz", lat: -23.605, lng: -46.646, address: "Rua Domingos de Morais, Vila Mariana"},
+                {name: "Chácara Klabin", lat: -23.590, lng: -46.630, address: "Rua Doutor César, Vila Mariana"}
+            ],
+            "Linha 15 – Prata": [
+                {name: "Vila Prudente", lat: -23.625, lng: -46.605, address: "Av. do Estado, Vila Prudente"},
+                {name: "Oratório", lat: -23.632, lng: -46.600, address: "Rua do Oratório, Sapopemba"},
+                {name: "São Lucas", lat: -23.639, lng: -46.595, address: "Av. Sapopemba, Sapopemba"},
+                {name: "Camilo Haddad", lat: -23.646, lng: -46.590, address: "Av. Sapopemba, Sapopemba"},
+                {name: "Vila Tolstói", lat: -23.653, lng: -46.585, address: "Rua Lev Tolstói, Sapopemba"},
+                {name: "Vila União", lat: -23.660, lng: -46.580, address: "Rua Nelson Fernandes, São Mateus"},
+                {name: "Jardim Planalto", lat: -23.667, lng: -46.575, address: "Rua Alasca, São Mateus"},
+                {name: "Sapopemba", lat: -23.674, lng: -46.570, address: "Rua Sapopemba, São Mateus"},
+                {name: "Fazenda da Juta", lat: -23.681, lng: -46.565, address: "Rua das Camélias, São Mateus"},
+                {name: "São Mateus", lat: -23.688, lng: -46.560, address: "Av. Sapopemba, São Mateus"},
+                {name: "Jardim Colonial", lat: -23.695, lng: -46.555, address: "Av. Ragueb Chohfi, São Mateus"}
             ]
         };
         
         const cptmStationsData = {
-            "Linha 7-Rubi": [
-                {name: "Luz", lat: -23.5350, lng: -46.6350, address: "Praça da Luz, Luz"},
-                {name: "Barra Funda", lat: -23.5260, lng: -46.6670, address: "Av. Marquês de São Vicente, Barra Funda"},
-                {name: "Água Branca", lat: -23.5320, lng: -46.6800, address: "Rua General Olímpio da Silveira, Água Branca"},
-                {name: "Lapa", lat: -23.5220, lng: -46.7070, address: "Rua Guaicurus, Lapa"},
-                {name: "Domingos de Moraes", lat: -23.5300, lng: -46.7150, address: "Rua Domingos de Moraes, Vila Leopoldina"},
-                {name: "Imperatriz Leopoldina", lat: -23.5380, lng: -46.7230, address: "Rua Imperatriz Leopoldina, Vila Leopoldina"},
-                {name: "Presidente Altino", lat: -23.5400, lng: -46.7380, address: "Av. dos Autonomistas, Osasco"},
-                {name: "Osasco", lat: -23.5450, lng: -46.7500, address: "Av. dos Autonomistas, Osasco"},
-                {name: "Comandante Sampaio", lat: -23.5500, lng: -46.7620, address: "Av. dos Autonomistas, Osasco"},
-                {name: "Quitaúna", lat: -23.5550, lng: -46.7740, address: "Av. dos Autonomistas, Osasco"}
+            "Linha 7 – Rubi": [
+                {name: "Brás", lat: -23.545, lng: -46.615, address: "Av. Rangel Pestana, Brás"},
+                {name: "Luz", lat: -23.535, lng: -46.635, address: "Praça da Luz, Bom Retiro"},
+                {name: "Barra Funda", lat: -23.526, lng: -46.667, address: "Av. Marquês de São Vicente, Barra Funda"},
+                {name: "Água Branca", lat: -23.532, lng: -46.680, address: "Rua General Olímpio da Silveira, Água Branca"},
+                {name: "Lapa", lat: -23.522, lng: -46.707, address: "Rua Guaicurus, Lapa"},
+                {name: "Piqueri", lat: -23.518, lng: -46.714, address: "Rua Piqueri, Lapa"},
+                {name: "Pirituba", lat: -23.515, lng: -46.721, address: "Rua dos Três Irmãos, Pirituba"},
+                {name: "Vila Clarice", lat: -23.512, lng: -46.728, address: "Rua Cinira Polônio, Pirituba"},
+                {name: "Jaraguá", lat: -23.509, lng: -46.735, address: "Rua Canuto Saraiva, Jaraguá"},
+                {name: "Perus", lat: -23.506, lng: -46.742, address: "Rua Galileu Galilei, Perus"},
+                {name: "Caieiras", lat: -23.488, lng: -46.760, address: "Av. Antônio de Almeida, Caieiras"},
+                {name: "Franco da Rocha", lat: -23.480, lng: -46.768, address: "Av. Dr. Luiz Antônio de Souza, Franco da Rocha"},
+                {name: "Baltazar Fidélis", lat: -23.472, lng: -46.776, address: "Av. Dr. Luiz Antônio de Souza, Franco da Rocha"},
+                {name: "Francisco Morato", lat: -23.464, lng: -46.784, address: "Av. dos Expedicionários, Francisco Morato"},
+                {name: "Botujuru", lat: -23.456, lng: -46.792, address: "Rua Antônio Alves, Campo Limpo Paulista"},
+                {name: "Campo Limpo Paulista", lat: -23.448, lng: -46.800, address: "Rua José Bonifácio, Campo Limpo Paulista"},
+                {name: "Várzea Paulista", lat: -23.440, lng: -46.808, address: "Av. Fernão Dias, Várzea Paulista"},
+                {name: "Jundiaí", lat: -23.432, lng: -46.816, address: "Av. União dos Ferroviários, Jundiaí"}
             ],
-            "Linha 8-Diamante": [
-                {name: "Júlio Prestes", lat: -23.5340, lng: -46.6410, address: "Praça Júlio Prestes, Campos Elíseos"},
-                {name: "Palmeiras-Barra Funda", lat: -23.5260, lng: -46.6670, address: "Av. Marquês de São Vicente, Barra Funda"},
-                {name: "Lapa", lat: -23.5220, lng: -46.7070, address: "Rua Guaicurus, Lapa"},
-                {name: "Domingos de Moraes", lat: -23.5300, lng: -46.7150, address: "Rua Domingos de Moraes, Vila Leopoldina"},
-                {name: "Imperatriz Leopoldina", lat: -23.5380, lng: -46.7230, address: "Rua Imperatriz Leopoldina, Vila Leopoldina"},
-                {name: "Presidente Altino", lat: -23.5400, lng: -46.7380, address: "Av. dos Autonomistas, Osasco"},
-                {name: "Osasco", lat: -23.5450, lng: -46.7500, address: "Av. dos Autonomistas, Osasco"},
-                {name: "Comandante Sampaio", lat: -23.5500, lng: -46.7620, address: "Av. dos Autonomistas, Osasco"},
-                {name: "Quitaúna", lat: -23.5550, lng: -46.7740, address: "Av. dos Autonomistas, Osasco"}
+            "Linha 8 – Diamante": [
+                {name: "Júlio Prestes", lat: -23.534, lng: -46.641, address: "Praça Júlio Prestes, Campos Elíseos"},
+                {name: "Palmeiras-Barra Funda", lat: -23.526, lng: -46.667, address: "Av. Marquês de São Vicente, Barra Funda"},
+                {name: "Lapa", lat: -23.522, lng: -46.707, address: "Rua Guaicurus, Lapa"},
+                {name: "Domingos de Moraes", lat: -23.530, lng: -46.715, address: "Rua Domingos de Moraes, Vila Leopoldina"},
+                {name: "Imperatriz Leopoldina", lat: -23.538, lng: -46.723, address: "Rua Imperatriz Leopoldina, Vila Leopoldina"},
+                {name: "Presidente Altino", lat: -23.540, lng: -46.738, address: "Av. dos Autonomistas, Osasco"},
+                {name: "Osasco", lat: -23.545, lng: -46.750, address: "Av. dos Autonomistas, Osasco"},
+                {name: "Comandante Sampaio", lat: -23.550, lng: -46.762, address: "Av. dos Autonomistas, Osasco"},
+                {name: "Quitaúna", lat: -23.555, lng: -46.774, address: "Av. dos Autonomistas, Osasco"},
+                {name: "General Miguel Costa", lat: -23.560, lng: -46.786, address: "Av. dos Autonomistas, Carapicuíba"},
+                {name: "Carapicuíba", lat: -23.565, lng: -46.798, address: "Av. Inocêncio Seráfico, Carapicuíba"},
+                {name: "Santa Terezinha", lat: -23.570, lng: -46.810, address: "Rua Antonio Pires, Carapicuíba"},
+                {name: "Antônio João", lat: -23.575, lng: -46.822, address: "Rua Antônio João, Barueri"},
+                {name: "Barueri", lat: -23.580, lng: -46.834, address: "Av. Ibirapuera, Barueri"},
+                {name: "Jardim Belval", lat: -23.585, lng: -46.846, address: "Rua Doutor Cesário Motta Júnior, Barueri"},
+                {name: "Jandira", lat: -23.590, lng: -46.858, address: "Rua José Benedetti, Jandira"},
+                {name: "Sagrado Coração", lat: -23.595, lng: -46.870, address: "Rua Santa Cruz, Jandira"},
+                {name: "Engenheiro Cardoso", lat: -23.600, lng: -46.882, address: "Av. Engenheiro Cardoso, Itapevi"},
+                {name: "Itapevi", lat: -23.605, lng: -46.894, address: "Av. Presidente Vargas, Itapevi"}
             ],
-            "Linha 9-Esmeralda": [
-                {name: "Osasco", lat: -23.5450, lng: -46.7500, address: "Av. dos Autonomistas, Osasco"},
-                {name: "Presidente Altino", lat: -23.5400, lng: -46.7380, address: "Av. dos Autonomistas, Osasco"},
-                {name: "Imperatriz Leopoldina", lat: -23.5380, lng: -46.7230, address: "Rua Imperatriz Leopoldina, Vila Leopoldina"},
-                {name: "Domingos de Moraes", lat: -23.5300, lng: -46.7150, address: "Rua Domingos de Moraes, Vila Leopoldina"},
-                {name: "Lapa", lat: -23.5220, lng: -46.7070, address: "Rua Guaicurus, Lapa"},
-                {name: "Palmeiras-Barra Funda", lat: -23.5260, lng: -46.6670, address: "Av. Marquês de São Vicente, Barra Funda"},
-                {name: "Rebouças", lat: -23.5700, lng: -46.6900, address: "Av. Rebouças, Pinheiros"},
-                {name: "Cidade Jardim", lat: -23.5900, lng: -46.6950, address: "Av. Cidade Jardim, Jardim Europa"},
-                {name: "Vila Olímpia", lat: -23.5950, lng: -46.6850, address: "Rua Olimpíadas, Vila Olímpia"},
-                {name: "Berrini", lat: -23.6000, lng: -46.6950, address: "Av. Engenheiro Luís Carlos Berrini, Brooklin"}
+            "Linha 9 – Esmeralda": [
+                {name: "Osasco", lat: -23.545, lng: -46.750, address: "Av. dos Autonomistas, Osasco"},
+                {name: "Presidente Altino", lat: -23.540, lng: -46.738, address: "Av. dos Autonomistas, Osasco"},
+                {name: "Ceasa", lat: -23.535, lng: -46.726, address: "Av. Dr. Gastão Vidigal, Jaguaré"},
+                {name: "Villa-Lobos-Jaguaré", lat: -23.530, lng: -46.714, address: "Av. Professor Francisco Morato, Jaguaré"},
+                {name: "Cidade Universitária", lat: -23.556, lng: -46.730, address: "Av. Professor Almeida Prado, Butantã"},
+                {name: "Pinheiros", lat: -23.568, lng: -46.702, address: "Av. das Nações Unidas, Pinheiros"},
+                {name: "Hebraica-Rebouças", lat: -23.575, lng: -46.690, address: "Av. Rebouças, Pinheiros"},
+                {name: "Cidade Jardim", lat: -23.590, lng: -46.695, address: "Av. Cidade Jardim, Jardim Europa"},
+                {name: "Vila Olímpia", lat: -23.595, lng: -46.685, address: "Rua Olimpíadas, Vila Olímpia"},
+                {name: "Berrini", lat: -23.600, lng: -46.695, address: "Av. Engenheiro Luís Carlos Berrini, Brooklin"},
+                {name: "Morumbi", lat: -23.605, lng: -46.705, address: "Av. Jorge João Saad, Morumbi"},
+                {name: "Granja Julieta", lat: -23.610, lng: -46.715, address: "Rua Groenlândia, Santo Amaro"},
+                {name: "Santo Amaro", lat: -23.650, lng: -46.722, address: "Av. Santo Amaro, Santo Amaro"},
+                {name: "Socorro", lat: -23.655, lng: -46.735, address: "Av. Interlagos, Socorro"},
+                {name: "Jurubatuba", lat: -23.660, lng: -46.748, address: "Av. Interlagos, Socorro"},
+                {name: "Autódromo", lat: -23.665, lng: -46.761, address: "Av. Interlagos, Interlagos"},
+                {name: "Primavera-Interlagos", lat: -23.670, lng: -46.774, address: "Av. Interlagos, Interlagos"},
+                {name: "Grajaú", lat: -23.675, lng: -46.787, address: "Av. Dona Belmira Marin, Grajaú"},
+                {name: "Mendes-Vila Natal", lat: -23.680, lng: -46.800, address: "Av. Sadamu Inoue, Grajaú"},
+                {name: "Varginha", lat: -23.685, lng: -46.813, address: "Av. Varginha, Grajaú"}
             ],
-            "Linha 10-Turquesa": [
-                {name: "Luz", lat: -23.5350, lng: -46.6350, address: "Praça da Luz, Luz"},
-                {name: "Brás", lat: -23.5450, lng: -46.6150, address: "Av. Rangel Pestana, Brás"},
-                {name: "Mooca", lat: -23.5500, lng: -46.6000, address: "Rua da Mooca, Mooca"},
-                {name: "Ipiranga", lat: -23.5850, lng: -46.6100, address: "Av. do Estado, Ipiranga"},
-                {name: "São Caetano do Sul", lat: -23.6100, lng: -46.5800, address: "Av. Goiás, São Caetano do Sul"},
-                {name: "Utinga", lat: -23.6250, lng: -46.5500, address: "Av. Goiás, Santo André"},
-                {name: "Prefeito Saladino", lat: -23.6400, lng: -46.5300, address: "Av. Portugal, Santo André"},
-                {name: "São Bernardo", lat: -23.6550, lng: -46.5500, address: "Av. Pereira Barreto, São Bernardo do Campo"},
-                {name: "Rio Grande da Serra", lat: -23.7450, lng: -46.4000, address: "Rua da Estação, Rio Grande da Serra"}
+            "Linha 10 – Turquesa": [
+                {name: "Brás", lat: -23.545, lng: -46.615, address: "Av. Rangel Pestana, Brás"},
+                {name: "Tamanduateí", lat: -23.618, lng: -46.610, address: "Av. do Estado, Ipiranga"},
+                {name: "Ipiranga", lat: -23.585, lng: -46.610, address: "Av. do Estado, Ipiranga"},
+                {name: "Mooca", lat: -23.550, lng: -46.600, address: "Rua da Mooca, Mooca"},
+                {name: "São Caetano", lat: -23.610, lng: -46.580, address: "Av. Goiás, São Caetano do Sul"},
+                {name: "Utinga", lat: -23.625, lng: -46.550, address: "Av. Goiás, Santo André"},
+                {name: "Prefeito Saladino", lat: -23.640, lng: -46.530, address: "Av. Portugal, Santo André"},
+                {name: "Capuava", lat: -23.655, lng: -46.520, address: "Av. Capuava, Santo André"},
+                {name: "Mauá", lat: -23.670, lng: -46.510, address: "Rua da Estação, Mauá"},
+                {name: "Guapituba", lat: -23.685, lng: -46.500, address: "Rua Francisco Rodrigues, Mauá"},
+                {name: "Ribeirão Pires", lat: -23.700, lng: -46.490, address: "Rua Coronel Oliveira Lima, Ribeirão Pires"},
+                {name: "Rio Grande da Serra", lat: -23.745, lng: -46.400, address: "Rua da Estação, Rio Grande da Serra"}
+            ],
+            "Linha 11 – Coral": [
+                {name: "Luz", lat: -23.535, lng: -46.635, address: "Praça da Luz, Bom Retiro"},
+                {name: "Brás", lat: -23.545, lng: -46.615, address: "Av. Rangel Pestana, Brás"},
+                {name: "Tatuapé", lat: -23.540, lng: -46.576, address: "Rua Tuiuti, Tatuapé"},
+                {name: "Corinthians-Itaquera", lat: -23.543, lng: -46.472, address: "Av. José Pinheiro Borges, Itaquera"},
+                {name: "Dom Bosco", lat: -23.545, lng: -46.468, address: "Rua Padre João Álvares, Itaquera"},
+                {name: "José Bonifácio", lat: -23.547, lng: -46.464, address: "Rua José Bonifácio, Itaquera"},
+                {name: "Guaianases", lat: -23.549, lng: -46.460, address: "Rua Antônio Carlos, Guaianases"},
+                {name: "Estação Ferraz de Vasconcelos", lat: -23.551, lng: -46.456, address: "Rua da Estação, Ferraz de Vasconcelos"},
+                {name: "Poá", lat: -23.553, lng: -46.452, address: "Rua da Estação, Poá"},
+                {name: "Calmon Viana", lat: -23.555, lng: -46.448, address: "Av. Calmon Viana, Poá"},
+                {name: "Suzano", lat: -23.557, lng: -46.444, address: "Rua Prudente de Moraes, Suzano"},
+                {name: "Jundiapeba", lat: -23.559, lng: -46.440, address: "Rua Jundiapeba, Mogi das Cruzes"},
+                {name: "Brás Cubas", lat: -23.561, lng: -46.436, address: "Rua Brás Cubas, Mogi das Cruzes"},
+                {name: "Mogi das Cruzes", lat: -23.563, lng: -46.432, address: "Rua Capitão Manoel Ferreira, Mogi das Cruzes"},
+                {name: "Estudantes", lat: -23.565, lng: -46.428, address: "Av. Cívica, Mogi das Cruzes"}
+            ],
+            "Linha 12 – Safira": [
+                {name: "Brás", lat: -23.545, lng: -46.615, address: "Av. Rangel Pestana, Brás"},
+                {name: "Tatuapé", lat: -23.540, lng: -46.576, address: "Rua Tuiuti, Tatuapé"},
+                {name: "Engenheiro Goulart", lat: -23.545, lng: -46.540, address: "Rua Frederico Goulart, Engenheiro Goulart"},
+                {name: "USP Leste", lat: -23.550, lng: -46.530, address: "Av. Arlindo Bettio, Cidade Tiradentes"},
+                {name: "Comendador Ermelino", lat: -23.555, lng: -46.520, address: "Rua Comendador Ermelino, Ermelino Matarazzo"},
+                {name: "São Miguel Paulista", lat: -23.560, lng: -46.510, address: "Rua Dona Ana Flora, São Miguel Paulista"},
+                {name: "Jardim Helena-Vila Mara", lat: -23.565, lng: -46.500, address: "Rua Mário Lopes Leão, Itaim Paulista"},
+                {name: "Itaim Paulista", lat: -23.570, lng: -46.490, address: "Av. Marechal Tito, Itaim Paulista"},
+                {name: "Jardim Romano", lat: -23.575, lng: -46.480, address: "Rua Eduardo Carlos Pereira, Itaim Paulista"},
+                {name: "Engenheiro Manoel Feio", lat: -23.580, lng: -46.470, address: "Rua Engenheiro Manoel Feio, Itaquaquecetuba"},
+                {name: "Itaquaquecetuba", lat: -23.585, lng: -46.460, address: "Rua João Fiuza, Itaquaquecetuba"},
+                {name: "Aracaré", lat: -23.590, lng: -46.450, address: "Rua Rio Negro, Itaquaquecetuba"},
+                {name: "Calmon Viana", lat: -23.555, lng: -46.448, address: "Av. Calmon Viana, Poá"}
+            ],
+            "Linha 13 – Jade": [
+                {name: "Engenheiro Goulart", lat: -23.545, lng: -46.540, address: "Rua Frederico Goulart, Engenheiro Goulart"},
+                {name: "Tatuapé", lat: -23.540, lng: -46.576, address: "Rua Tuiuti, Tatuapé"},
+                {name: "Brás", lat: -23.545, lng: -46.615, address: "Av. Rangel Pestana, Brás"},
+                {name: "Luz", lat: -23.535, lng: -46.635, address: "Praça da Luz, Bom Retiro"},
+                {name: "Guarulhos-Cecap", lat: -23.480, lng: -46.520, address: "Av. Santos Dumont, Guarulhos"},
+                {name: "Aeroporto-Guarulhos", lat: -23.435, lng: -46.473, address: "Rod. Hélio Smidt, Guarulhos"}
             ]
         };
         
@@ -1437,6 +1695,7 @@
         let currentSelectionStep = 'none';
         let selectedLine = null;
         let isMonitoring = false;
+        let deferredPrompt = null;
         
         // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
@@ -1472,6 +1731,12 @@
             // Configurar botão de monitoramento
             startMonitoringBtn.addEventListener('click', toggleMonitoring);
             
+            // Configurar PWA
+            setupPWA();
+            
+            // Configurar botão de instalação PWA
+            installPwaBtn.addEventListener('click', showPWAInstructions);
+            
             // Configurar seleção automática ao clicar em endereço
             addressBtn.addEventListener('click', function() {
                 selectedOption = { type: 'endereço', line: 'Endereço Cadastrado', station: 'Meu Endereço' };
@@ -1480,6 +1745,59 @@
                 selectedStationEl.textContent = 'Aguardando cadastro';
             });
         });
+        
+        // Função para configurar PWA
+        function setupPWA() {
+            // Verificar se o navegador suporta service workers
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('data:application/javascript;base64,KCgpID0+IHsKICAvLyBTZXJ2aWNlIHdvcmtlciBzaW1wbGVzIHBhcmEgUFdBIC0gYWx0ZXJhciBzZSBuZWNlc3NhcmlvCiAgc2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgKCkgPT4gewogICAgY29uc29sZS5sb2coJ1BXQSBpbnN0YWxsZWQnKTsKICB9KTsKfSkoKTs=').then(registration => {
+                        console.log('Service Worker registrado com sucesso:', registration.scope);
+                    }).catch(error => {
+                        console.log('Falha ao registrar Service Worker:', error);
+                    });
+                });
+            }
+            
+            // Detectar evento de instalação PWA
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                installPwaBtn.style.display = 'block';
+            });
+            
+            // Verificar se já está instalado
+            window.addEventListener('appinstalled', () => {
+                console.log('PWA instalado com sucesso!');
+                installPwaBtn.style.display = 'none';
+                pwaInstructions.style.display = 'none';
+            });
+            
+            // Verificar modo standalone
+            if (window.matchMedia('(display-mode: standalone)').matches) {
+                console.log('App rodando em modo standalone');
+                installPwaBtn.style.display = 'none';
+            }
+        }
+        
+        // Função para mostrar instruções de instalação PWA
+        function showPWAInstructions() {
+            pwaInstructions.style.display = 'block';
+            
+            // Se houver prompt de instalação, mostrar
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Usuário aceitou instalação');
+                        pwaInstructions.innerHTML = '<h4><i class="fas fa-check-circle"></i> Instalação iniciada!</h4><p>Siga as instruções do seu navegador para completar a instalação.</p>';
+                    } else {
+                        console.log('Usuário recusou instalação');
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        }
         
         // Função para mostrar linhas de transporte
         function showTransportLines(transportType) {
@@ -1552,7 +1870,7 @@
                     <button class="back-btn" id="backToCptmLines">
                         <i class="fas fa-arrow-left"></i> Voltar para linhas
                     </button>
-                    <h3>Estações da ${line}</h3>
+                    <h3>${line}</h3>
                 `;
                 
                 // Adicionar botão voltar
@@ -1596,7 +1914,7 @@
                     <button class="back-btn" id="backToMetroLines">
                         <i class="fas fa-arrow-left"></i> Voltar para linhas
                     </button>
-                    <h3>Estações da ${line}</h3>
+                    <h3>${line}</h3>
                 `;
                 
                 // Adicionar botão voltar
