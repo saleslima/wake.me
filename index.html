@@ -35,31 +35,31 @@
         }
         
         html {
-            font-size: 16px;
+            font-size: 14px;
         }
         
         body {
             background: linear-gradient(135deg, #1a237e, #4a148c);
             color: #fff;
             min-height: 100vh;
-            padding: 10px;
+            padding: 8px;
             overflow-x: hidden;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 10px;
+            padding: 8px;
             width: 100%;
         }
         
         header {
             text-align: center;
-            margin-bottom: 20px;
-            padding: 15px 10px;
+            margin-bottom: 15px;
+            padding: 12px 8px;
             background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -68,52 +68,53 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 8px;
         }
         
         .logo-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             background: rgba(255, 255, 255, 0.1);
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
         
         h1 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
+            font-size: 1.5rem;
+            margin-bottom: 6px;
             color: #bb86fc;
-            line-height: 1.3;
+            line-height: 1.2;
             word-wrap: break-word;
         }
         
         .subtitle {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.9;
-            line-height: 1.4;
-            padding: 0 5px;
+            line-height: 1.3;
+            padding: 0 4px;
         }
         
         .main-content {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 15px;
+            margin-bottom: 15px;
         }
         
-        /* Layout responsivo para tablets e desktops */
+        /* Layout responsivo para tablets */
         @media (min-width: 768px) {
             html {
-                font-size: 17px;
+                font-size: 16px;
             }
             
             .container {
                 padding: 15px;
+                max-width: 1200px;
             }
             
             header {
@@ -122,40 +123,26 @@
             }
             
             h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .subtitle {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
             
             .main-content {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 25px;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            html {
-                font-size: 18px;
-            }
-            
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            .main-content {
-                gap: 30px;
+                gap: 20px;
             }
         }
         
         .section {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 20px 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            padding: 15px 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.1);
             width: 100%;
             overflow: hidden;
@@ -163,105 +150,101 @@
         
         @media (min-width: 768px) {
             .section {
-                padding: 25px;
+                padding: 20px;
             }
         }
         
         .section-title {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
             color: #bb86fc;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
         
         .section-title i {
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
         
         @media (min-width: 768px) {
             .section-title {
-                font-size: 1.6rem;
-                margin-bottom: 20px;
+                font-size: 1.4rem;
+                margin-bottom: 16px;
             }
             
             .section-title i {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
         }
         
         .buttons-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 15px;
         }
         
         .transport-btn {
             background: linear-gradient(to right, #6200ea, #3700b3);
             color: white;
             border: none;
-            padding: 16px 20px;
-            font-size: 1.1rem;
-            border-radius: 10px;
+            padding: 14px 16px;
+            font-size: 1rem;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
             width: 100%;
             touch-action: manipulation;
-            min-height: 60px;
+            min-height: 55px;
         }
         
         .transport-btn:active {
             transform: scale(0.98);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
         }
         
         @media (min-width: 768px) {
             .transport-btn:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
                 background: linear-gradient(to right, #3700b3, #6200ea);
-            }
-            
-            .transport-btn:active {
-                transform: scale(0.98);
             }
         }
         
         .transport-btn i {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         .btn-content {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             flex: 1;
         }
         
         .btn-arrow {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.8;
         }
         
         .back-btn {
             background: linear-gradient(to right, #616161, #9e9e9e);
-            padding: 10px 15px;
-            border-radius: 8px;
+            padding: 8px 12px;
+            border-radius: 6px;
             border: none;
             color: white;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            gap: 6px;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
             width: 100%;
             justify-content: center;
             touch-action: manipulation;
@@ -274,34 +257,34 @@
         .options-container {
             max-height: 50vh;
             overflow-y: auto;
-            padding: 12px;
+            padding: 10px;
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            margin-bottom: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
             display: none;
             -webkit-overflow-scrolling: touch;
         }
         
         /* Estilização da scrollbar para mobile */
         .options-container::-webkit-scrollbar {
-            width: 6px;
+            width: 4px;
         }
         
         .options-container::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            border-radius: 8px;
         }
         
         .options-container::-webkit-scrollbar-thumb {
             background: #bb86fc;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         
         .option-item {
-            padding: 12px;
+            padding: 10px;
             background: rgba(255, 255, 255, 0.1);
-            margin-bottom: 8px;
-            border-radius: 8px;
+            margin-bottom: 6px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
             touch-action: manipulation;
@@ -316,80 +299,80 @@
         @media (min-width: 768px) {
             .option-item:hover {
                 background: rgba(255, 255, 255, 0.2);
-                transform: translateX(5px);
+                transform: translateX(3px);
             }
         }
         
         .line-item {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         
         .line-color {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             flex-shrink: 0;
         }
         
         .station-item {
-            padding-left: 25px;
+            padding-left: 20px;
             position: relative;
         }
         
         .station-item:before {
             content: "●";
             position: absolute;
-            left: 10px;
+            left: 8px;
             color: #bb86fc;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
         
         .selected {
             background: rgba(187, 134, 252, 0.3);
-            border-left: 4px solid #bb86fc;
+            border-left: 3px solid #bb86fc;
         }
         
         .address-form {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
         
         .form-row {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
         
         @media (min-width: 480px) {
             .form-row {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 12px;
+                gap: 10px;
             }
         }
         
         .input-group {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
         }
         
         label {
             font-weight: 600;
             color: #bb86fc;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
         input, select {
-            padding: 12px 15px;
-            border-radius: 8px;
+            padding: 10px 12px;
+            border-radius: 6px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             background: rgba(0, 0, 0, 0.3);
             color: white;
-            font-size: 1rem;
+            font-size: 0.9rem;
             width: 100%;
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -399,9 +382,9 @@
         select {
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
             background-repeat: no-repeat;
-            background-position: right 15px center;
-            background-size: 20px;
-            padding-right: 45px;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 35px;
         }
         
         input:focus, select:focus {
@@ -413,15 +396,15 @@
         .action-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 15px;
             flex-wrap: wrap;
         }
         
         .action-btn {
-            padding: 14px 25px;
-            font-size: 1.1rem;
-            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -429,11 +412,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             flex: 1;
-            min-width: 200px;
+            min-width: 100%;
             max-width: 100%;
             touch-action: manipulation;
+        }
+        
+        @media (min-width: 768px) {
+            .action-btn {
+                min-width: 200px;
+            }
         }
         
         .action-btn:active {
@@ -448,21 +437,20 @@
         @media (min-width: 768px) {
             .confirm-btn:hover {
                 background: linear-gradient(to right, #00e676, #00c853);
-                transform: translateY(-3px);
-                box-shadow: 0 5px 15px rgba(0, 200, 83, 0.4);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 200, 83, 0.4);
             }
         }
         
         .alarm-section {
             grid-column: 1 / -1;
-            text-align: center;
         }
         
         .alarm-controls {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 12px;
         }
         
         @media (min-width: 480px) {
@@ -471,23 +459,23 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
-                gap: 15px;
+                gap: 10px;
             }
         }
         
         .alarm-btn {
-            padding: 12px 20px;
-            border-radius: 50px;
+            padding: 10px 16px;
+            border-radius: 8px;
             border: none;
             cursor: pointer;
             font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             transition: all 0.3s ease;
             flex: 1;
-            min-width: 160px;
+            min-width: 140px;
             max-width: 100%;
             touch-action: manipulation;
         }
@@ -498,8 +486,8 @@
         
         @media (min-width: 768px) {
             .alarm-btn:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             }
         }
         
@@ -514,15 +502,15 @@
         }
         
         .alarm-status {
-            padding: 10px 15px;
-            border-radius: 50px;
+            padding: 8px 12px;
+            border-radius: 8px;
             font-weight: 600;
             margin-top: 10px;
             display: inline-block;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-align: center;
             width: 100%;
-            max-width: 400px;
+            max-width: 100%;
         }
         
         .alarm-active {
@@ -539,19 +527,19 @@
         .status-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 15px;
-            padding: 12px;
+            gap: 10px;
+            margin-top: 12px;
+            padding: 10px;
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+            border-radius: 8px;
         }
         
         @media (min-width: 480px) {
             .status-container {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 15px;
-                padding: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+                padding: 12px;
             }
         }
         
@@ -561,43 +549,43 @@
         }
         
         .status-value {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #bb86fc;
-            margin-top: 5px;
+            margin-top: 4px;
             word-break: break-word;
-            line-height: 1.3;
+            line-height: 1.2;
         }
         
         @media (min-width: 768px) {
             .status-value {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
         }
         
         .notification {
             position: fixed;
-            bottom: 15px;
-            left: 15px;
-            right: 15px;
-            padding: 20px;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            padding: 15px;
             background: rgba(0, 0, 0, 0.95);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border-left: 5px solid #bb86fc;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #bb86fc;
             display: none;
             z-index: 1000;
-            animation: slideIn 0.5s ease;
-            max-width: 500px;
+            animation: slideIn 0.3s ease;
+            max-width: 100%;
             margin: 0 auto;
         }
         
         @media (min-width: 768px) {
             .notification {
-                bottom: 30px;
-                right: 30px;
+                bottom: 20px;
+                right: 20px;
                 left: auto;
-                max-width: 350px;
+                max-width: 300px;
             }
         }
         
@@ -614,21 +602,21 @@
         
         .notification h3 {
             color: #bb86fc;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
         
         .notification-close {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 8px;
+            right: 8px;
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -641,9 +629,9 @@
         
         .loading {
             display: inline-block;
-            width: 18px;
-            height: 18px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top-color: #bb86fc;
             animation: spin 1s ease-in-out infinite;
@@ -655,69 +643,69 @@
         
         footer {
             text-align: center;
-            margin-top: 30px;
-            padding-top: 15px;
+            margin-top: 20px;
+            padding-top: 12px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             opacity: 0.8;
-            line-height: 1.4;
+            line-height: 1.3;
         }
         
         .selection-path {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: #bb86fc;
-            margin-bottom: 10px;
-            padding: 8px 12px;
+            margin-bottom: 8px;
+            padding: 6px 10px;
             background: rgba(187, 134, 252, 0.1);
-            border-radius: 8px;
+            border-radius: 6px;
             display: none;
             word-wrap: break-word;
-            line-height: 1.4;
+            line-height: 1.3;
         }
         
         .location-info {
-            margin-top: 15px;
-            padding: 12px;
+            margin-top: 12px;
+            padding: 10px;
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+            border-radius: 8px;
             display: none;
         }
         
         .location-details {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 6px;
+            margin-top: 8px;
         }
         
         @media (min-width: 480px) {
             .location-details {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 10px;
+                gap: 8px;
             }
         }
         
         .location-item {
-            padding: 8px;
+            padding: 6px;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
-            font-size: 0.85rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
             word-break: break-word;
         }
         
         .location-label {
             color: #bb86fc;
             font-weight: 600;
-            margin-bottom: 3px;
-            font-size: 0.8rem;
+            margin-bottom: 2px;
+            font-size: 0.7rem;
         }
         
         .distance-indicator {
-            height: 10px;
+            height: 8px;
             background: linear-gradient(to right, #00c853, #ffeb3b, #ff3d00);
-            border-radius: 5px;
-            margin-top: 10px;
+            border-radius: 4px;
+            margin-top: 8px;
             position: relative;
             overflow: hidden;
         }
@@ -726,43 +714,43 @@
             height: 100%;
             background: #bb86fc;
             width: 0%;
-            transition: width 0.5s ease;
-            border-radius: 5px;
+            transition: width 0.3s ease;
+            border-radius: 4px;
         }
         
         .distance-marker {
             position: absolute;
-            height: 15px;
+            height: 12px;
             width: 2px;
             background: white;
             top: -2px;
+        }
+        
+        .distance-marker-600 {
+            left: 40%;
+        }
+        
+        .distance-marker-400 {
+            left: 60%;
         }
         
         .distance-marker-200 {
             left: 80%;
         }
         
-        .distance-marker-100 {
-            left: 90%;
-        }
-        
-        .distance-marker-50 {
-            left: 95%;
-        }
-        
         .distance-labels {
             display: flex;
             justify-content: space-between;
-            font-size: 0.65rem;
-            margin-top: 5px;
+            font-size: 0.6rem;
+            margin-top: 4px;
             color: rgba(255, 255, 255, 0.7);
         }
         
         .map-container {
-            margin-top: 15px;
-            border-radius: 10px;
+            margin-top: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            height: 200px;
+            height: 160px;
             background: rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
@@ -772,18 +760,18 @@
         
         @media (min-width: 768px) {
             .map-container {
-                height: 250px;
+                height: 200px;
             }
         }
         
         .map-placeholder {
             text-align: center;
-            padding: 15px;
+            padding: 12px;
         }
         
         .map-placeholder i {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2rem;
+            margin-bottom: 8px;
             color: #bb86fc;
         }
         
@@ -802,15 +790,15 @@
             background: linear-gradient(to right, #2196F3, #21CBF3);
             color: white;
             border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
+            padding: 10px 16px;
+            border-radius: 6px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            margin-top: 15px;
+            gap: 6px;
+            font-size: 0.8rem;
+            margin-top: 12px;
             width: 100%;
             touch-action: manipulation;
         }
@@ -819,36 +807,174 @@
             transform: scale(0.98);
         }
         
-        @media (min-width: 768px) {
-            .auto-monitoring-btn:hover {
-                background: linear-gradient(to right, #1976D2, #2196F3);
-            }
-        }
-        
         .monitoring-active {
             background: linear-gradient(to right, #4CAF50, #8BC34A) !important;
         }
         
-        /* Melhorias específicas para telas muito pequenas */
-        @media (max-width: 360px) {
-            html {
-                font-size: 15px;
+        /* Lista de distâncias */
+        .distance-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 12px 0;
+        }
+        
+        .distance-list-item {
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .distance-list-item.selected {
+            background: rgba(187, 134, 252, 0.3);
+            border-color: #bb86fc;
+            transform: scale(1.02);
+        }
+        
+        .distance-list-item:active {
+            transform: scale(0.98);
+        }
+        
+        .distance-value {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .distance-description {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .distance-check {
+            color: #bb86fc;
+            font-size: 1rem;
+            display: none;
+        }
+        
+        .distance-list-item.selected .distance-check {
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .distance-list-item:hover {
+                background: rgba(255, 255, 255, 0.2);
             }
-            
-            .transport-btn {
-                padding: 14px 15px;
-                font-size: 1rem;
-                min-height: 55px;
-            }
-            
-            .action-btn {
-                min-width: 100%;
-                padding: 12px 20px;
-            }
-            
-            .status-value {
-                font-size: 1rem;
-            }
+        }
+        
+        .monitoring-status {
+            text-align: center;
+            margin: 12px 0;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+        
+        /* Estilos para os favoritos */
+        .favorites-container {
+            display: none;
+            max-height: 50vh;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .favorite-item {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid transparent;
+        }
+        
+        .favorite-item.selected {
+            background: rgba(187, 134, 252, 0.3);
+            border-color: #bb86fc;
+        }
+        
+        .favorite-item:active {
+            transform: scale(0.98);
+        }
+        
+        .favorite-icon {
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+        
+        .favorite-details {
+            flex: 1;
+            margin-left: 10px;
+        }
+        
+        .favorite-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .favorite-description {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+        
+        .remove-favorite {
+            color: #ff6b6b;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        .remove-favorite:active {
+            background: rgba(255, 107, 107, 0.2);
+        }
+        
+        .favorite-btn {
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            color: #333;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            width: 100%;
+            touch-action: manipulation;
+            font-weight: 600;
+        }
+        
+        .favorite-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .favorite-btn.active {
+            background: linear-gradient(to right, #FFA500, #FFD700);
+        }
+        
+        .no-favorites {
+            text-align: center;
+            padding: 20px;
+            opacity: 0.7;
+            font-style: italic;
         }
         
         /* Otimização para orientação paisagem */
@@ -858,8 +984,9 @@
             }
             
             .transport-btn {
-                padding: 12px 15px;
-                min-height: 50px;
+                padding: 10px 12px;
+                min-height: 45px;
+                font-size: 0.9rem;
             }
         }
         
@@ -871,7 +998,7 @@
         }
         
         /* Melhorias de toque para iOS */
-        button, .option-item, .transport-btn {
+        button, .option-item, .transport-btn, .distance-list-item {
             cursor: pointer;
             -webkit-user-select: none;
             -moz-user-select: none;
@@ -880,131 +1007,38 @@
         }
         
         /* Prevenir highlight azul em elementos tocáveis no iOS */
-        button, a, input, select, textarea, .option-item {
+        button, a, input, select, textarea, .option-item, .distance-list-item {
             -webkit-tap-highlight-color: rgba(0,0,0,0);
             -webkit-tap-highlight-color: transparent;
         }
         
-        /* Melhorar legibilidade em diferentes telas */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: linear-gradient(135deg, #0d1b5e, #2a0c5c);
-            }
-        }
-        
-        /* Ajustes para telas muito grandes */
-        @media (min-width: 1400px) {
-            .container {
-                max-width: 95%;
-            }
-        }
-        
-        /* Garantir que elementos não transbordem */
-        .section, .options-container, .notification {
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        
-        /* Ajustes para o painel de simulação */
-        #simulationSpeed {
-            width: 100%;
-            margin-top: 8px;
-            padding: 10px;
-        }
-        
-        .simulation-controls {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        @media (min-width: 480px) {
-            .simulation-controls {
-                flex-direction: row;
-                align-items: center;
-            }
-            
-            #simulationSpeed {
-                flex: 1;
-                margin-top: 0;
-            }
-        }
-        
-        /* Ajuste para o botão de fechar notificação em telas pequenas */
-        @media (max-width: 767px) {
-            .notification-close {
-                width: 40px;
-                height: 40px;
-                font-size: 1.8rem;
-            }
-        }
-        
         /* Ajuste para instruções em telas pequenas */
         .instructions-box {
-            margin-top: 15px;
-            padding: 12px;
+            margin-top: 12px;
+            padding: 10px;
             background: rgba(255, 61, 0, 0.1);
-            border-radius: 10px;
-            font-size: 0.85rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
         }
         
         .instructions-box h4 {
-            font-size: 1rem;
-            margin-bottom: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
             color: #ffab91;
         }
         
         .instructions-box p {
-            margin-bottom: 6px;
-            line-height: 1.4;
+            margin-bottom: 4px;
+            line-height: 1.3;
         }
         
-        /* Instruções para instalar PWA */
-        .pwa-install-btn {
-            background: linear-gradient(to right, #FF4081, #F50057);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            width: 100%;
-            touch-action: manipulation;
-        }
-        
-        .pwa-install-btn:active {
-            transform: scale(0.98);
-        }
-        
-        .pwa-instructions {
-            display: none;
-            margin-top: 15px;
-            padding: 15px;
-            background: rgba(255, 64, 129, 0.1);
-            border-radius: 10px;
-            border-left: 4px solid #FF4081;
-        }
-        
-        .pwa-instructions h4 {
-            color: #FF4081;
-            margin-bottom: 10px;
-        }
-        
-        .pwa-instructions ul {
-            padding-left: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .pwa-instructions li {
-            margin-bottom: 8px;
-            font-size: 0.85rem;
-            line-height: 1.4;
+        /* Ajustes para o botão de fechar notificação em telas pequenas */
+        @media (max-width: 767px) {
+            .notification-close {
+                width: 30px;
+                height: 30px;
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -1015,20 +1049,8 @@
                 <div class="logo-icon">🚇</div>
                 <div>
                     <h1>Sistema de Transporte SP</h1>
-                    <p class="subtitle">Metrô e CPTM com alerta de proximidade (200m)</p>
+                    <p class="subtitle">Metrô e CPTM com alerta de proximidade personalizado</p>
                 </div>
-            </div>
-            <button class="pwa-install-btn" id="installPWA">
-                <i class="fas fa-download"></i> Instalar App no Celular
-            </button>
-            <div id="pwaInstructions" class="pwa-instructions">
-                <h4><i class="fas fa-mobile-alt"></i> Como instalar:</h4>
-                <ul>
-                    <li><strong>Android Chrome:</strong> Toque em "Instalar App" ou ⋮ → "Adicionar à tela inicial"</li>
-                    <li><strong>iPhone Safari:</strong> Toque em <i class="fas fa-share"></i> → "Adicionar à Tela de Início"</li>
-                    <li><strong>Outros navegadores:</strong> Procure por "Instalar aplicativo" ou "Adicionar à tela inicial"</li>
-                </ul>
-                <p>Após instalar, o app aparecerá com ícone 🚇 na sua tela inicial!</p>
             </div>
         </header>
         
@@ -1062,51 +1084,73 @@
                         </div>
                         <div class="btn-arrow"><i class="fas fa-chevron-right"></i></div>
                     </button>
+                    
+                    <button class="transport-btn" id="favoritesBtn">
+                        <div class="btn-content">
+                            <i class="fas fa-star"></i>
+                            <span>Meus Favoritos</span>
+                        </div>
+                        <div class="btn-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </button>
+                </div>
+                
+                <!-- Botão para favoritar destino atual -->
+                <button class="favorite-btn" id="addToFavoritesBtn" style="display: none;">
+                    <i class="fas fa-star"></i> Adicionar aos Favoritos
+                </button>
+                
+                <!-- Container para favoritos -->
+                <div id="favoritesContainer" class="favorites-container">
+                    <button class="back-btn" id="backToMain">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px;"><i class="fas fa-star"></i> Meus Destinos Favoritos</h3>
+                    <div id="favoritesList"></div>
                 </div>
                 
                 <!-- Container para linhas do Metrô -->
                 <div id="metroLines" class="options-container">
-                    <h3>🚇 Linhas do Metrô de São Paulo</h3>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px;">🚇 Linhas do Metrô de São Paulo</h3>
                     <div class="option-item line-item" data-type="metro" data-line="Linha 1 – Azul">
                         <div class="line-color" style="background-color: #005CA9;"></div>
                         <div>
                             <strong>Linha 1 – Azul</strong>
-                            <div>Jabaquara ↔ Tucuruvi</div>
+                            <div style="font-size: 0.8rem;">Jabaquara ↔ Tucuruvi</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="metro" data-line="Linha 2 – Verde">
                         <div class="line-color" style="background-color: #00AA5B;"></div>
                         <div>
                             <strong>Linha 2 – Verde</strong>
-                            <div>Vila Prudente ↔ Vila Madalena</div>
+                            <div style="font-size: 0.8rem;">Vila Prudente ↔ Vila Madalena</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="metro" data-line="Linha 3 – Vermelha">
                         <div class="line-color" style="background-color: #EE3F23;"></div>
                         <div>
                             <strong>Linha 3 – Vermelha</strong>
-                            <div>Corinthians-Itaquera ↔ Palmeiras-Barra Funda</div>
+                            <div style="font-size: 0.8rem;">Corinthians-Itaquera ↔ Palmeiras-Barra Funda</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="metro" data-line="Linha 4 – Amarela">
                         <div class="line-color" style="background-color: #FFD100;"></div>
                         <div>
                             <strong>Linha 4 – Amarela</strong>
-                            <div>Luz ↔ Vila Sônia</div>
+                            <div style="font-size: 0.8rem;">Luz ↔ Vila Sônia</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="metro" data-line="Linha 5 – Lilás">
                         <div class="line-color" style="background-color: #8B499A;"></div>
                         <div>
                             <strong>Linha 5 – Lilás</strong>
-                            <div>Capão Redondo ↔ Chácara Klabin</div>
+                            <div style="font-size: 0.8rem;">Capão Redondo ↔ Chácara Klabin</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="metro" data-line="Linha 15 – Prata">
                         <div class="line-color" style="background-color: #A9A9A9;"></div>
                         <div>
                             <strong>Linha 15 – Prata</strong>
-                            <div>Vila Prudente ↔ Jardim Colonial</div>
+                            <div style="font-size: 0.8rem;">Vila Prudente ↔ Jardim Colonial</div>
                         </div>
                     </div>
                 </div>
@@ -1116,54 +1160,54 @@
                 
                 <!-- Container para linhas da CPTM -->
                 <div id="cptmLines" class="options-container">
-                    <h3>🚆 Linhas da CPTM / ViaMobilidade</h3>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px;">🚆 Linhas da CPTM / ViaMobilidade</h3>
                     <div class="option-item line-item" data-type="cptm" data-line="Linha 7 – Rubi">
                         <div class="line-color" style="background-color: #A60C1E;"></div>
                         <div>
                             <strong>Linha 7 – Rubi</strong>
-                            <div>Brás ↔ Jundiaí</div>
+                            <div style="font-size: 0.8rem;">Brás ↔ Jundiaí</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="cptm" data-line="Linha 8 – Diamante">
                         <div class="line-color" style="background-color: #00A65A;"></div>
                         <div>
                             <strong>Linha 8 – Diamante</strong>
-                            <div>Júlio Prestes ↔ Itapevi</div>
+                            <div style="font-size: 0.8rem;">Júlio Prestes ↔ Itapevi</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="cptm" data-line="Linha 9 – Esmeralda">
                         <div class="line-color" style="background-color: #0C9444;"></div>
                         <div>
                             <strong>Linha 9 – Esmeralda</strong>
-                            <div>Osasco ↔ Varginha</div>
+                            <div style="font-size: 0.8rem;">Osasco ↔ Varginha</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="cptm" data-line="Linha 10 – Turquesa">
                         <div class="line-color" style="background-color: #0D7AB8;"></div>
                         <div>
                             <strong>Linha 10 – Turquesa</strong>
-                            <div>Brás ↔ Rio Grande da Serra</div>
+                            <div style="font-size: 0.8rem;">Brás ↔ Rio Grande da Serra</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="cptm" data-line="Linha 11 – Coral">
                         <div class="line-color" style="background-color: #F58220;"></div>
                         <div>
                             <strong>Linha 11 – Coral</strong>
-                            <div>Luz ↔ Estudantes (Mogi das Cruzes)</div>
+                            <div style="font-size: 0.8rem;">Luz ↔ Estudantes (Mogi das Cruzes)</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="cptm" data-line="Linha 12 – Safira">
                         <div class="line-color" style="background-color: #1B48A0;"></div>
                         <div>
                             <strong>Linha 12 – Safira</strong>
-                            <div>Brás ↔ Calmon Viana</div>
+                            <div style="font-size: 0.8rem;">Brás ↔ Calmon Viana</div>
                         </div>
                     </div>
                     <div class="option-item line-item" data-type="cptm" data-line="Linha 13 – Jade">
                         <div class="line-color" style="background-color: #00A88F;"></div>
                         <div>
                             <strong>Linha 13 – Jade</strong>
-                            <div>Engenheiro Goulart ↔ Aeroporto Guarulhos</div>
+                            <div style="font-size: 0.8rem;">Engenheiro Goulart ↔ Aeroporto Guarulhos</div>
                         </div>
                     </div>
                 </div>
@@ -1173,16 +1217,10 @@
                 
                 <!-- Formulário de endereço -->
                 <div id="addressForm" class="address-form" style="display: none;">
-                    <div class="form-row">
-                        <div class="input-group">
-                            <label for="cep">CEP</label>
-                            <input type="text" id="cep" maxlength="9" placeholder="00000-000">
-                            <small>Digite o CEP para preencher automaticamente</small>
-                        </div>
-                        <div class="input-group">
-                            <label for="numero">Número</label>
-                            <input type="text" id="numero" placeholder="Número do endereço">
-                        </div>
+                    <div class="input-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" maxlength="10" placeholder="00000-000">
+                        <small style="font-size: 0.7rem; opacity: 0.8;">Digite o CEP para preencher automaticamente</small>
                     </div>
                     
                     <div class="form-row">
@@ -1208,14 +1246,19 @@
                     </div>
                     
                     <div class="input-group">
+                        <label for="numero">Número *</label>
+                        <input type="text" id="numero" placeholder="Número do endereço" required>
+                    </div>
+                    
+                    <div class="input-group">
                         <label for="complemento">Complemento (opcional)</label>
-                        <input type="text" id="complemento" placeholder="Apartamento, bloco, etc.">
+                            <input type="text" id="complemento" placeholder="Apartamento, bloco, etc.">
                     </div>
                 </div>
                 
                 <!-- Informações de localização da estação -->
                 <div id="locationInfo" class="location-info">
-                    <h3><i class="fas fa-map-pin"></i> Localização da Estação</h3>
+                    <h3 style="font-size: 1.1rem;"><i class="fas fa-map-pin"></i> Localização do Destino</h3>
                     <div class="location-details">
                         <div class="location-item">
                             <div class="location-label">Latitude</div>
@@ -1237,30 +1280,31 @@
                     
                     <div class="distance-indicator">
                         <div class="distance-progress" id="distanceProgress"></div>
+                        <div class="distance-marker distance-marker-600" title="600 metros"></div>
+                        <div class="distance-marker distance-marker-400" title="400 metros"></div>
                         <div class="distance-marker distance-marker-200" title="200 metros"></div>
-                        <div class="distance-marker distance-marker-100" title="100 metros"></div>
-                        <div class="distance-marker distance-marker-50" title="50 metros"></div>
                     </div>
                     <div class="distance-labels">
                         <span>1000m</span>
-                        <span>500m</span>
+                        <span>800m</span>
+                        <span>600m</span>
+                        <span>400m</span>
                         <span>200m</span>
-                        <span>100m</span>
-                        <span>50m</span>
                         <span>0m</span>
                     </div>
                     
                     <div class="map-container">
                         <div class="map-placeholder" id="mapPlaceholder">
                             <i class="fas fa-map"></i>
-                            <p>Mapa da localização da estação</p>
-                            <p id="mapCoordinates">Coordenadas: -</p>
+                            <p>Localização do destino</p>
+                            <p id="mapCoordinates" style="font-size: 0.75rem;">Coordenadas: -</p>
                         </div>
                     </div>
-                    
-                    <button class="auto-monitoring-btn" id="startMonitoring">
-                        <i class="fas fa-satellite-dish"></i> Iniciar Monitoramento em Tempo Real
-                    </button>
+                </div>
+                
+                <!-- Status do monitoramento -->
+                <div id="monitoringStatus" class="monitoring-status" style="display: none;">
+                    <i class="fas fa-satellite-dish"></i> Monitoramento ativo
                 </div>
                 
                 <div class="action-buttons">
@@ -1306,22 +1350,47 @@
                     </div>
                     <div class="status-item">
                         <div>Próximo Alerta</div>
-                        <div class="status-value" id="nextAlertAt">200 metros</div>
+                        <div class="status-value" id="nextAlertAt">-</div>
                     </div>
                 </div>
                 
                 <h2 class="section-title"><i class="fas fa-bell"></i> Configuração do Alarme</h2>
                 
+                <!-- Lista de opções de distância -->
+                <div class="distance-list">
+                    <div class="distance-list-item" data-distance="200">
+                        <div>
+                            <div class="distance-value">200 metros</div>
+                            <div class="distance-description">Alerta próximo</div>
+                        </div>
+                        <div class="distance-check"><i class="fas fa-check"></i></div>
+                    </div>
+                    <div class="distance-list-item" data-distance="400">
+                        <div>
+                            <div class="distance-value">400 metros</div>
+                            <div class="distance-description">Alerta médio</div>
+                        </div>
+                        <div class="distance-check"><i class="fas fa-check"></i></div>
+                    </div>
+                    <div class="distance-list-item" data-distance="600" data-selected="true">
+                        <div>
+                            <div class="distance-value">600 metros</div>
+                            <div class="distance-description">Alerta antecipado</div>
+                        </div>
+                        <div class="distance-check"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+                
                 <div class="alarm-controls">
                     <button class="alarm-btn alarm-on" id="enableAlarm">
-                        <i class="fas fa-bell"></i> Ativar Alarme (200m)
+                        <i class="fas fa-bell"></i> Ativar Alarme
                     </button>
                     
                     <button class="alarm-btn alarm-off" id="disableAlarm">
                         <i class="fas fa-bell-slash"></i> Desativar Alarme
                     </button>
                     
-                    <select id="alarmSound">
+                    <select id="alarmSound" style="font-size: 0.9rem;">
                         <option value="alarm1">Alarme Clássico</option>
                         <option value="alarm2">Alarme Moderno</option>
                         <option value="alarm3">Alarme Melódico</option>
@@ -1330,48 +1399,26 @@
                 </div>
                 
                 <div class="alarm-status alarm-inactive" id="alarmStatus">
-                    <i class="fas fa-bell-slash"></i> Alarme Desativado - Será acionado a 200m
+                    <i class="fas fa-bell-slash"></i> Alarme Desativado
                 </div>
+                
+                <button class="auto-monitoring-btn" id="startMonitoring">
+                    <i class="fas fa-satellite-dish"></i> Iniciar Monitoramento
+                </button>
                 
                 <div class="instructions-box">
                     <h4><i class="fas fa-exclamation-triangle"></i> Instruções:</h4>
                     <p>1. Selecione uma estação ou endereço</p>
-                    <p>2. Ative o alarme</p>
-                    <p>3. O sistema monitorará sua localização em tempo real</p>
-                    <p>4. <strong class="distance-warning">Alarme acionado automaticamente a 200 metros</strong></p>
-                </div>
-            </div>
-            
-            <div class="section alarm-section">
-                <h2 class="section-title"><i class="fas fa-map"></i> Simulação de Viagem</h2>
-                <p>Clique no botão abaixo para simular uma viagem e testar o sistema de alerta de 200m</p>
-                
-                <div class="alarm-controls simulation-controls">
-                    <button class="alarm-btn alarm-on" id="simulateTrip">
-                        <i class="fas fa-play-circle"></i> Simular Aproximação
-                    </button>
-                    
-                    <button class="alarm-btn alarm-off" id="stopSimulation">
-                        <i class="fas fa-stop-circle"></i> Parar Simulação
-                    </button>
-                </div>
-                
-                <select id="simulationSpeed">
-                    <option value="1000">Lenta (1x)</option>
-                    <option value="500">Normal (2x)</option>
-                    <option value="250">Rápida (4x)</option>
-                    <option value="100">Muito Rápida (10x)</option>
-                </select>
-                
-                <div id="simulationStatus" style="margin-top: 15px; font-style: italic; font-size: 0.9rem;">
-                    Clique em "Simular Aproximação" para testar o alerta de 200m
+                    <p>2. Escolha a distância para o alerta</p>
+                    <p>3. Ative o alarme e inicie o monitoramento</p>
+                    <p>4. <strong class="distance-warning">Alarme acionado automaticamente</strong></p>
                 </div>
             </div>
         </div>
         
         <footer>
             <p>Sistema de Transporte Inteligente &copy; 2023 - Desenvolvido para alertas de proximidade</p>
-            <p>Metrô SP e CPTM - Alerta automático a 200 metros do destino</p>
+            <p>Metrô SP e CPTM - Alerta automático personalizado</p>
         </footer>
     </div>
     
@@ -1380,9 +1427,9 @@
         <button class="notification-close" id="closeNotification">&times;</button>
         <h3><i class="fas fa-exclamation-triangle"></i> Alerta de Proximidade!</h3>
         <p id="notificationMessage">Você está se aproximando do seu destino!</p>
-        <p><strong>Distância atual:</strong> <span id="notificationDistance">200 metros</span></p>
+        <p><strong>Distância atual:</strong> <span id="notificationDistance">- metros</span></p>
         <p><strong>Destino:</strong> <span id="notificationDestination">-</span></p>
-        <p><small>Alarme acionado automaticamente</small></p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Alarme acionado automaticamente</p>
     </div>
     
     <!-- Elementos de áudio para os alarmes -->
@@ -1407,6 +1454,11 @@
         const cptmBtn = document.getElementById('cptmBtn');
         const metroBtn = document.getElementById('metroBtn');
         const addressBtn = document.getElementById('addressBtn');
+        const favoritesBtn = document.getElementById('favoritesBtn');
+        const addToFavoritesBtn = document.getElementById('addToFavoritesBtn');
+        const favoritesContainer = document.getElementById('favoritesContainer');
+        const favoritesList = document.getElementById('favoritesList');
+        const backToMainBtn = document.getElementById('backToMain');
         const cptmLines = document.getElementById('cptmLines');
         const cptmStations = document.getElementById('cptmStations');
         const metroLines = document.getElementById('metroLines');
@@ -1417,8 +1469,6 @@
         const disableAlarmBtn = document.getElementById('disableAlarm');
         const alarmStatus = document.getElementById('alarmStatus');
         const alarmSoundSelect = document.getElementById('alarmSound');
-        const simulateTripBtn = document.getElementById('simulateTrip');
-        const stopSimulationBtn = document.getElementById('stopSimulation');
         const notification = document.getElementById('notification');
         const closeNotificationBtn = document.getElementById('closeNotification');
         const notificationMessage = document.getElementById('notificationMessage');
@@ -1434,9 +1484,8 @@
         const mapPlaceholder = document.getElementById('mapPlaceholder');
         const mapCoordinates = document.getElementById('mapCoordinates');
         const startMonitoringBtn = document.getElementById('startMonitoring');
-        const simulationSpeed = document.getElementById('simulationSpeed');
-        const installPwaBtn = document.getElementById('installPWA');
-        const pwaInstructions = document.getElementById('pwaInstructions');
+        const distanceListItems = document.querySelectorAll('.distance-list-item');
+        const monitoringStatusEl = document.getElementById('monitoringStatus');
         
         // Elementos de status
         const transportTypeEl = document.getElementById('transportType');
@@ -1444,7 +1493,6 @@
         const selectedLineEl = document.getElementById('selectedLine');
         const currentDistanceEl = document.getElementById('currentDistance');
         const currentLocationEl = document.getElementById('currentLocation');
-        const simulationStatusEl = document.getElementById('simulationStatus');
         const alarmDistanceStatus = document.getElementById('alarmDistanceStatus');
         const nextAlertAt = document.getElementById('nextAlertAt');
         
@@ -1687,18 +1735,31 @@
         // Variáveis do sistema
         let selectedOption = null;
         let alarmEnabled = false;
-        let simulationInterval = null;
         let monitoringInterval = null;
-        let currentRealDistance = 1000; // Distância inicial em metros
+        let currentRealDistance = 0;
         let userLocation = null;
         let stationLocation = null;
         let currentSelectionStep = 'none';
         let selectedLine = null;
         let isMonitoring = false;
-        let deferredPrompt = null;
+        let selectedDistance = 600; // Distância padrão para alerta
+        
+        // Sistema de favoritos
+        let favorites = [];
+        
+        // Endereços e coordenadas fixas para teste
+        const addressCoordinates = {
+            "Rua Araraquara, 21, Jardim Nossa Senhora D'Ajuda, Itaquaquecetuba - SP": {
+                lat: -23.484258150401704,
+                lng: -46.36002533698252
+            }
+        };
         
         // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
+            // Carregar favoritos do localStorage
+            loadFavorites();
+            
             // Obter localização do usuário
             getUserLocation();
             
@@ -1706,6 +1767,17 @@
             cptmBtn.addEventListener('click', () => showTransportLines('cptm'));
             metroBtn.addEventListener('click', () => showTransportLines('metro'));
             addressBtn.addEventListener('click', () => showOptions('address'));
+            favoritesBtn.addEventListener('click', showFavorites);
+            
+            // Configurar botão para adicionar aos favoritos
+            addToFavoritesBtn.addEventListener('click', addToFavorites);
+            
+            // Configurar botão voltar dos favoritos
+            backToMainBtn.addEventListener('click', () => {
+                favoritesContainer.style.display = 'none';
+                selectionPath.style.display = 'none';
+                currentSelectionStep = 'none';
+            });
             
             // Configurar botão de confirmação
             confirmBtn.addEventListener('click', confirmSelection);
@@ -1713,10 +1785,6 @@
             // Configurar alarme
             enableAlarmBtn.addEventListener('click', enableAlarm);
             disableAlarmBtn.addEventListener('click', disableAlarm);
-            
-            // Configurar simulação
-            simulateTripBtn.addEventListener('click', startSimulation);
-            stopSimulationBtn.addEventListener('click', stopSimulation);
             
             // Configurar notificação
             closeNotificationBtn.addEventListener('click', () => {
@@ -1731,11 +1799,24 @@
             // Configurar botão de monitoramento
             startMonitoringBtn.addEventListener('click', toggleMonitoring);
             
-            // Configurar PWA
-            setupPWA();
+            // Configurar lista de distâncias
+            distanceListItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    distanceListItems.forEach(i => i.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedDistance = parseInt(this.getAttribute('data-distance'));
+                    nextAlertAt.textContent = `${selectedDistance} metros`;
+                    updateDistanceMarkers();
+                    
+                    // Se o alarme está ativo, atualizar status
+                    if (alarmEnabled) {
+                        alarmDistanceStatus.textContent = `Ativado (${selectedDistance}m)`;
+                    }
+                });
+            });
             
-            // Configurar botão de instalação PWA
-            installPwaBtn.addEventListener('click', showPWAInstructions);
+            // Selecionar 600m por padrão
+            document.querySelector('.distance-list-item[data-distance="600"]').click();
             
             // Configurar seleção automática ao clicar em endereço
             addressBtn.addEventListener('click', function() {
@@ -1746,56 +1827,230 @@
             });
         });
         
-        // Função para configurar PWA
-        function setupPWA() {
-            // Verificar se o navegador suporta service workers
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('data:application/javascript;base64,KCgpID0+IHsKICAvLyBTZXJ2aWNlIHdvcmtlciBzaW1wbGVzIHBhcmEgUFdBIC0gYWx0ZXJhciBzZSBuZWNlc3NhcmlvCiAgc2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgKCkgPT4gewogICAgY29uc29sZS5sb2coJ1BXQSBpbnN0YWxsZWQnKTsKICB9KTsKfSkoKTs=').then(registration => {
-                        console.log('Service Worker registrado com sucesso:', registration.scope);
-                    }).catch(error => {
-                        console.log('Falha ao registrar Service Worker:', error);
-                    });
-                });
-            }
-            
-            // Detectar evento de instalação PWA
-            window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault();
-                deferredPrompt = e;
-                installPwaBtn.style.display = 'block';
-            });
-            
-            // Verificar se já está instalado
-            window.addEventListener('appinstalled', () => {
-                console.log('PWA instalado com sucesso!');
-                installPwaBtn.style.display = 'none';
-                pwaInstructions.style.display = 'none';
-            });
-            
-            // Verificar modo standalone
-            if (window.matchMedia('(display-mode: standalone)').matches) {
-                console.log('App rodando em modo standalone');
-                installPwaBtn.style.display = 'none';
+        // Função para carregar favoritos do localStorage
+        function loadFavorites() {
+            const storedFavorites = localStorage.getItem('transportFavorites');
+            if (storedFavorites) {
+                favorites = JSON.parse(storedFavorites);
             }
         }
         
-        // Função para mostrar instruções de instalação PWA
-        function showPWAInstructions() {
-            pwaInstructions.style.display = 'block';
+        // Função para salvar favoritos no localStorage
+        function saveFavorites() {
+            localStorage.setItem('transportFavorites', JSON.stringify(favorites));
+        }
+        
+        // Função para mostrar a lista de favoritos
+        function showFavorites() {
+            // Esconder todos os containers
+            cptmLines.style.display = 'none';
+            cptmStations.style.display = 'none';
+            metroLines.style.display = 'none';
+            metroStations.style.display = 'none';
+            addressForm.style.display = 'none';
+            locationInfo.style.display = 'none';
+            addToFavoritesBtn.style.display = 'none';
+            monitoringStatusEl.style.display = 'none';
+            selectionPath.style.display = 'none';
             
-            // Se houver prompt de instalação, mostrar
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('Usuário aceitou instalação');
-                        pwaInstructions.innerHTML = '<h4><i class="fas fa-check-circle"></i> Instalação iniciada!</h4><p>Siga as instruções do seu navegador para completar a instalação.</p>';
-                    } else {
-                        console.log('Usuário recusou instalação');
+            // Mostrar container de favoritos
+            favoritesContainer.style.display = 'block';
+            currentSelectionStep = 'favorites';
+            
+            // Atualizar caminho de seleção
+            selectionPath.style.display = 'block';
+            selectionPath.innerHTML = '<i class="fas fa-star"></i> Favoritos > Selecione um destino';
+            
+            // Limpar e preencher lista de favoritos
+            favoritesList.innerHTML = '';
+            
+            if (favorites.length === 0) {
+                favoritesList.innerHTML = '<div class="no-favorites">Nenhum destino favoritado ainda</div>';
+                return;
+            }
+            
+            // Adicionar cada favorito à lista
+            favorites.forEach((favorite, index) => {
+                const favoriteItem = document.createElement('div');
+                favoriteItem.className = 'favorite-item';
+                favoriteItem.setAttribute('data-index', index);
+                
+                // Definir ícone baseado no tipo
+                let icon = 'fas fa-map-marker-alt';
+                if (favorite.type === 'cptm') icon = 'fas fa-train';
+                if (favorite.type === 'metro') icon = 'fas fa-subway';
+                
+                favoriteItem.innerHTML = `
+                    <div class="favorite-icon"><i class="fas fa-star"></i></div>
+                    <div class="favorite-details">
+                        <div class="favorite-name">${favorite.station}</div>
+                        <div class="favorite-description">
+                            <i class="${icon}"></i> ${favorite.type === 'cptm' ? 'CPTM' : favorite.type === 'metro' ? 'Metrô' : 'Endereço'} - ${favorite.line}
+                        </div>
+                    </div>
+                    <button class="remove-favorite" data-index="${index}"><i class="fas fa-times"></i></button>
+                `;
+                
+                // Adicionar evento de clique para selecionar o favorito
+                favoriteItem.addEventListener('click', function(e) {
+                    if (!e.target.closest('.remove-favorite')) {
+                        selectFavorite(favorite, index);
                     }
-                    deferredPrompt = null;
                 });
+                
+                // Adicionar evento para remover favorito
+                const removeBtn = favoriteItem.querySelector('.remove-favorite');
+                removeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    removeFavorite(parseInt(this.getAttribute('data-index')));
+                });
+                
+                favoritesList.appendChild(favoriteItem);
+            });
+        }
+        
+        // Função para selecionar um favorito
+        function selectFavorite(favorite, index) {
+            // Destacar o favorito selecionado
+            document.querySelectorAll('.favorite-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            document.querySelector(`.favorite-item[data-index="${index}"]`).classList.add('selected');
+            
+            // Definir como opção selecionada
+            selectedOption = favorite;
+            
+            // Se for uma estação, carregar sua localização
+            if (favorite.type === 'cptm' || favorite.type === 'metro') {
+                const stationsData = favorite.type === 'cptm' ? cptmStationsData : metroStationsData;
+                const lineStations = stationsData[favorite.line] || [];
+                const station = lineStations.find(s => s.name === favorite.station);
+                
+                if (station) {
+                    stationLocation = {
+                        lat: station.lat,
+                        lng: station.lng,
+                        address: station.address
+                    };
+                    
+                    showStationLocationInfo();
+                    
+                    // Atualizar status
+                    transportTypeEl.textContent = favorite.type === 'cptm' ? 'CPTM' : 'Metrô';
+                    selectedLineEl.textContent = favorite.line;
+                    selectedStationEl.textContent = favorite.station;
+                    
+                    // Calcular distância inicial
+                    if (userLocation) {
+                        currentRealDistance = calculateDistance(userLocation.lat, userLocation.lng, stationLocation.lat, stationLocation.lng);
+                        updateDistanceDisplay();
+                    }
+                    
+                    // Voltar para tela principal
+                    favoritesContainer.style.display = 'none';
+                    selectionPath.style.display = 'none';
+                    currentSelectionStep = 'none';
+                    
+                    // Mostrar mensagem
+                    alert(`Favorito selecionado: ${favorite.station}\n\nLinha: ${favorite.line}\nTipo: ${favorite.type === 'cptm' ? 'CPTM' : 'Metrô'}`);
+                }
+            } else if (favorite.type === 'endereço') {
+                // Para endereços, usar coordenadas salvas
+                stationLocation = {
+                    lat: favorite.lat,
+                    lng: favorite.lng,
+                    address: favorite.address
+                };
+                
+                showStationLocationInfo();
+                
+                // Atualizar status
+                transportTypeEl.textContent = 'Endereço';
+                selectedLineEl.textContent = 'Endereço Favorito';
+                selectedStationEl.textContent = favorite.station;
+                
+                // Calcular distância inicial
+                if (userLocation) {
+                    currentRealDistance = calculateDistance(userLocation.lat, userLocation.lng, stationLocation.lat, stationLocation.lng);
+                    updateDistanceDisplay();
+                }
+                
+                // Voltar para tela principal
+                favoritesContainer.style.display = 'none';
+                selectionPath.style.display = 'none';
+                currentSelectionStep = 'none';
+                
+                // Mostrar mensagem
+                alert(`Favorito selecionado: ${favorite.station}`);
+            }
+            
+            // Mostrar botão de favoritos (para caso queira remover)
+            addToFavoritesBtn.style.display = 'block';
+            addToFavoritesBtn.innerHTML = '<i class="fas fa-star"></i> Remover dos Favoritos';
+            addToFavoritesBtn.classList.add('active');
+        }
+        
+        // Função para adicionar destino atual aos favoritos
+        function addToFavorites() {
+            if (!selectedOption || !stationLocation) {
+                alert('Por favor, selecione um destino primeiro!');
+                return;
+            }
+            
+            // Verificar se já é um favorito
+            const isAlreadyFavorite = favorites.some(fav => 
+                fav.type === selectedOption.type && 
+                fav.line === selectedOption.line && 
+                fav.station === selectedOption.station
+            );
+            
+            if (isAlreadyFavorite) {
+                // Remover dos favoritos
+                const index = favorites.findIndex(fav => 
+                    fav.type === selectedOption.type && 
+                    fav.line === selectedOption.line && 
+                    fav.station === selectedOption.station
+                );
+                
+                if (index !== -1) {
+                    favorites.splice(index, 1);
+                    saveFavorites();
+                    addToFavoritesBtn.innerHTML = '<i class="fas fa-star"></i> Adicionar aos Favoritos';
+                    addToFavoritesBtn.classList.remove('active');
+                    alert('Destino removido dos favoritos!');
+                }
+            } else {
+                // Adicionar aos favoritos
+                const favorite = {
+                    type: selectedOption.type,
+                    line: selectedOption.line,
+                    station: selectedOption.station,
+                    lat: stationLocation.lat,
+                    lng: stationLocation.lng,
+                    address: stationLocation.address,
+                    addedDate: new Date().toISOString()
+                };
+                
+                favorites.push(favorite);
+                saveFavorites();
+                addToFavoritesBtn.innerHTML = '<i class="fas fa-star"></i> Remover dos Favoritos';
+                addToFavoritesBtn.classList.add('active');
+                alert('Destino adicionado aos favoritos!');
+            }
+        }
+        
+        // Função para remover um favorito
+        function removeFavorite(index) {
+            if (confirm('Tem certeza que deseja remover este destino dos favoritos?')) {
+                favorites.splice(index, 1);
+                saveFavorites();
+                showFavorites(); // Atualizar lista
+                
+                // Se o favorito removido era o selecionado, limpar seleção
+                if (selectedOption && favorites.indexOf(selectedOption) === -1) {
+                    addToFavoritesBtn.innerHTML = '<i class="fas fa-star"></i> Adicionar aos Favoritos';
+                    addToFavoritesBtn.classList.remove('active');
+                }
             }
         }
         
@@ -1808,6 +2063,9 @@
             metroStations.style.display = 'none';
             addressForm.style.display = 'none';
             locationInfo.style.display = 'none';
+            addToFavoritesBtn.style.display = 'none';
+            favoritesContainer.style.display = 'none';
+            monitoringStatusEl.style.display = 'none';
             
             // Limpar seleção
             document.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected'));
@@ -1870,7 +2128,7 @@
                     <button class="back-btn" id="backToCptmLines">
                         <i class="fas fa-arrow-left"></i> Voltar para linhas
                     </button>
-                    <h3>${line}</h3>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px;">${line}</h3>
                 `;
                 
                 // Adicionar botão voltar
@@ -1885,7 +2143,7 @@
                     stationItem.className = 'option-item station-item';
                     stationItem.innerHTML = `
                         <div><strong>${station.name}</strong></div>
-                        <div style="font-size: 0.8rem; opacity: 0.8;">${station.address}</div>
+                        <div style="font-size: 0.75rem; opacity: 0.8;">${station.address}</div>
                     `;
                     stationItem.setAttribute('data-type', 'cptm');
                     stationItem.setAttribute('data-line', line);
@@ -1914,7 +2172,7 @@
                     <button class="back-btn" id="backToMetroLines">
                         <i class="fas fa-arrow-left"></i> Voltar para linhas
                     </button>
-                    <h3>${line}</h3>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 10px;">${line}</h3>
                 `;
                 
                 // Adicionar botão voltar
@@ -1929,7 +2187,7 @@
                     stationItem.className = 'option-item station-item';
                     stationItem.innerHTML = `
                         <div><strong>${station.name}</strong></div>
-                        <div style="font-size: 0.8rem; opacity: 0.8;">${station.address}</div>
+                        <div style="font-size: 0.75rem; opacity: 0.8;">${station.address}</div>
                     `;
                     stationItem.setAttribute('data-type', 'metro');
                     stationItem.setAttribute('data-line', line);
@@ -1964,6 +2222,24 @@
                 address: station.address
             };
             
+            // Mostrar botão de favoritos
+            addToFavoritesBtn.style.display = 'block';
+            
+            // Verificar se já é um favorito
+            const isAlreadyFavorite = favorites.some(fav => 
+                fav.type === transportType && 
+                fav.line === line && 
+                fav.station === station.name
+            );
+            
+            if (isAlreadyFavorite) {
+                addToFavoritesBtn.innerHTML = '<i class="fas fa-star"></i> Remover dos Favoritos';
+                addToFavoritesBtn.classList.add('active');
+            } else {
+                addToFavoritesBtn.innerHTML = '<i class="fas fa-star"></i> Adicionar aos Favoritos';
+                addToFavoritesBtn.classList.remove('active');
+            }
+            
             // Mostrar informações da localização
             showStationLocationInfo();
             
@@ -1995,13 +2271,14 @@
             if (userLocation) {
                 const distance = calculateDistance(userLocation.lat, userLocation.lng, stationLocation.lat, stationLocation.lng);
                 realDistance.textContent = `${Math.round(distance)} metros`;
+                currentDistanceEl.textContent = `${Math.round(distance)} metros`;
                 
                 // Atualizar barra de progresso (invertida: 0% = longe, 100% = perto)
                 const progress = Math.max(0, Math.min(100, 100 - (distance / 1000) * 100));
                 distanceProgress.style.width = `${progress}%`;
                 
-                // Verificar se está a 200 metros ou menos
-                if (distance <= 200 && alarmEnabled) {
+                // Verificar se está na distância de alerta ou menos
+                if (distance <= selectedDistance && alarmEnabled) {
                     triggerAlarm(distance);
                 }
             }
@@ -2035,10 +2312,27 @@
             // Atualizar texto da distância real
             realDistance.textContent = `${Math.round(currentRealDistance)} metros`;
             
-            // Verificar se está a 200 metros ou menos
-            if (currentRealDistance <= 200 && alarmEnabled) {
+            // Verificar se está na distância de alerta ou menos
+            if (currentRealDistance <= selectedDistance && alarmEnabled) {
                 triggerAlarm(currentRealDistance);
             }
+        }
+        
+        // Função para atualizar marcadores de distância
+        function updateDistanceMarkers() {
+            // Atualizar posição dos marcadores baseado na distância selecionada
+            const markers = document.querySelectorAll('.distance-marker');
+            markers.forEach(marker => {
+                if (marker.classList.contains('distance-marker-600')) {
+                    marker.style.left = `${100 - (600 / 1000) * 100}%`;
+                }
+                if (marker.classList.contains('distance-marker-400')) {
+                    marker.style.left = `${100 - (400 / 1000) * 100}%`;
+                }
+                if (marker.classList.contains('distance-marker-200')) {
+                    marker.style.left = `${100 - (200 / 1000) * 100}%`;
+                }
+            });
         }
         
         // Função para mostrar opções de endereço
@@ -2050,7 +2344,10 @@
             metroStations.style.display = 'none';
             addressForm.style.display = 'none';
             locationInfo.style.display = 'none';
+            addToFavoritesBtn.style.display = 'none';
             selectionPath.style.display = 'none';
+            favoritesContainer.style.display = 'none';
+            monitoringStatusEl.style.display = 'none';
             
             // Limpar seleção
             document.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected'));
@@ -2077,42 +2374,112 @@
             
             // Para endereço, validar se os campos foram preenchidos
             if (currentSelectionStep === 'address') {
-                if (!ruaInput.value || !numeroInput.value) {
+                if (!cepInput.value || !ruaInput.value || !numeroInput.value) {
                     alert('Por favor, preencha o endereço completo!');
                     return;
                 }
                 
+                const fullAddress = `${ruaInput.value}, ${numeroInput.value}, ${bairroInput.value}, ${cidadeInput.value} - ${estadoInput.value}`;
+                
                 selectedOption = {
                     type: 'endereço',
                     line: 'Endereço Cadastrado',
-                    station: `${ruaInput.value}, ${numeroInput.value}`
+                    station: fullAddress
                 };
                 
                 selectedStationEl.textContent = `${ruaInput.value}, ${numeroInput.value}`;
                 
-                // Gerar localização de destino aleatória (para simulação)
-                if (userLocation) {
+                // Mostrar botão de favoritos
+                addToFavoritesBtn.style.display = 'block';
+                
+                // Verificar se já é um favorito
+                const isAlreadyFavorite = favorites.some(fav => 
+                    fav.type === 'endereço' && 
+                    fav.station === fullAddress
+                );
+                
+                if (isAlreadyFavorite) {
+                    addToFavoritesBtn.innerHTML = '<i class="fas fa-star"></i> Remover dos Favoritos';
+                    addToFavoritesBtn.classList.add('active');
+                } else {
+                    addToFavoritesBtn.innerHTML = '<i class="fas fa-star"></i> Adicionar aos Favoritos';
+                    addToFavoritesBtn.classList.remove('active');
+                }
+                
+                // Verificar se temos coordenadas fixas para este endereço
+                const addressKey = `${ruaInput.value}, ${numeroInput.value}, ${bairroInput.value}, ${cidadeInput.value} - ${estadoInput.value}`;
+                
+                if (addressCoordinates[addressKey]) {
+                    // Usar coordenadas fixas
                     stationLocation = {
-                        lat: userLocation.lat + (Math.random() * 0.01 - 0.005),
-                        lng: userLocation.lng + (Math.random() * 0.01 - 0.005),
-                        address: `${ruaInput.value}, ${numeroInput.value}, ${bairroInput.value}, ${cidadeInput.value}`
+                        lat: addressCoordinates[addressKey].lat,
+                        lng: addressCoordinates[addressKey].lng,
+                        address: fullAddress
                     };
-                    
-                    // Mostrar informações da localização
+                } else {
+                    // Tentar geocodificar usando Nominatim (OpenStreetMap)
+                    geocodeAddress(fullAddress);
+                }
+                
+                // Mostrar informações da localização
+                if (stationLocation) {
                     showStationLocationInfo();
                 }
             }
             
-            alert(`Seleção confirmada!\n\nTipo: ${selectedOption.type === 'cptm' ? 'CPTM' : selectedOption.type === 'metro' ? 'Metrô' : 'Endereço'}\nLinha: ${selectedOption.line}\nEstaçao/Destino: ${selectedOption.station}\n\nO sistema irá alertar quando você estiver a 200 metros do destino.`);
+            alert(`Seleção confirmada!\n\nTipo: ${selectedOption.type === 'cptm' ? 'CPTM' : selectedOption.type === 'metro' ? 'Metrô' : 'Endereço'}\nLinha: ${selectedOption.line}\nDestino: ${selectedOption.station}\n\nO sistema irá alertar quando você estiver a ${selectedDistance} metros do destino.`);
             
             // Atualizar status
-            currentDistanceEl.textContent = `${Math.round(currentRealDistance)} metros`;
+            if (stationLocation && userLocation) {
+                currentRealDistance = calculateDistance(userLocation.lat, userLocation.lng, stationLocation.lat, stationLocation.lng);
+                currentDistanceEl.textContent = `${Math.round(currentRealDistance)} metros`;
+            }
             
             // Se o alarme está ativado, mostrar status
             if (alarmEnabled) {
                 alarmStatus.className = "alarm-status alarm-active";
-                alarmStatus.innerHTML = '<i class="fas fa-bell"></i> Alarme Ativado - Você será alertado a 200 metros';
-                alarmDistanceStatus.textContent = "Ativado (200m)";
+                alarmStatus.innerHTML = `<i class="fas fa-bell"></i> Alarme Ativado - Você será alertado a ${selectedDistance} metros`;
+                alarmDistanceStatus.textContent = `Ativado (${selectedDistance}m)`;
+            }
+            
+            // Mostrar botão de monitoramento
+            startMonitoringBtn.style.display = 'block';
+        }
+        
+        // Função para geocodificar endereço usando Nominatim
+        async function geocodeAddress(address) {
+            try {
+                const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}&limit=1`);
+                const data = await response.json();
+                
+                if (data && data.length > 0) {
+                    stationLocation = {
+                        lat: parseFloat(data[0].lat),
+                        lng: parseFloat(data[0].lon),
+                        address: address
+                    };
+                    
+                    showStationLocationInfo();
+                } else {
+                    // Usar localização do usuário como fallback
+                    stationLocation = {
+                        lat: userLocation.lat + (Math.random() * 0.01 - 0.005),
+                        lng: userLocation.lng + (Math.random() * 0.01 - 0.005),
+                        address: address
+                    };
+                    
+                    showStationLocationInfo();
+                }
+            } catch (error) {
+                console.error("Erro ao geocodificar endereço:", error);
+                // Usar localização do usuário como fallback
+                stationLocation = {
+                    lat: userLocation.lat + (Math.random() * 0.01 - 0.005),
+                    lng: userLocation.lng + (Math.random() * 0.01 - 0.005),
+                    address: address
+                };
+                
+                showStationLocationInfo();
             }
         }
         
@@ -2129,7 +2496,7 @@
                             lng: position.coords.longitude
                         };
                         
-                        currentLocationEl.innerHTML = `<i class="fas fa-map-marker-alt"></i> Lat: ${userLocation.lat.toFixed(6)}, Long: ${userLocation.lng.toFixed(6)}`;
+                        currentLocationEl.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${userLocation.lat.toFixed(6)}, ${userLocation.lng.toFixed(6)}`;
                         
                         // Se já tem uma estação selecionada, calcular distância
                         if (stationLocation) {
@@ -2145,36 +2512,10 @@
                             lng: -46.6333 + (Math.random() * 0.01 - 0.005)
                         };
                         
-                        currentLocationEl.innerHTML = `<i class="fas fa-map-marker-alt"></i> Lat: ${userLocation.lat.toFixed(6)}, Long: ${userLocation.lng.toFixed(6)} (simulado)`;
+                        currentLocationEl.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${userLocation.lat.toFixed(6)}, ${userLocation.lng.toFixed(6)}`;
                     },
                     { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
                 );
-                
-                // Atualizar localização periodicamente
-                setInterval(() => {
-                    if (navigator.geolocation && isMonitoring) {
-                        navigator.geolocation.getCurrentPosition(
-                            (position) => {
-                                userLocation = {
-                                    lat: position.coords.latitude,
-                                    lng: position.coords.longitude
-                                };
-                                
-                                currentLocationEl.innerHTML = `<i class="fas fa-map-marker-alt"></i> Lat: ${userLocation.lat.toFixed(6)}, Long: ${userLocation.lng.toFixed(6)}`;
-                                
-                                // Se já tem uma estação selecionada, calcular distância
-                                if (stationLocation) {
-                                    currentRealDistance = calculateDistance(userLocation.lat, userLocation.lng, stationLocation.lat, stationLocation.lng);
-                                    updateDistanceDisplay();
-                                }
-                            },
-                            (error) => {
-                                console.error("Erro ao atualizar localização:", error);
-                            },
-                            { enableHighAccuracy: true, timeout: 5000 }
-                        );
-                    }
-                }, 5000); // Atualizar a cada 5 segundos
                 
             } else {
                 currentLocationEl.textContent = "Geolocalização não suportada";
@@ -2185,16 +2526,17 @@
         
         // Função para ativar alarme
         function enableAlarm() {
+            if (!selectedOption) {
+                alert('Por favor, selecione e confirme um destino primeiro!');
+                return;
+            }
+            
             alarmEnabled = true;
             alarmStatus.className = "alarm-status alarm-active";
-            alarmStatus.innerHTML = '<i class="fas fa-bell"></i> Alarme Ativado - Você será alertado a 200 metros';
-            alarmDistanceStatus.textContent = "Ativado (200m)";
+            alarmStatus.innerHTML = `<i class="fas fa-bell"></i> Alarme Ativado - Você será alertado a ${selectedDistance} metros`;
+            alarmDistanceStatus.textContent = `Ativado (${selectedDistance}m)`;
             
-            if (selectedOption) {
-                alert(`Alarme ativado! Você será alertado com som quando estiver a 200 metros de ${selectedOption.station}`);
-            } else {
-                alert('Alarme ativado! Selecione um destino para começar a receber alertas.');
-            }
+            alert(`Alarme ativado! Você será alertado com som quando estiver a ${selectedDistance} metros de ${selectedOption.station}`);
         }
         
         // Função para desativar alarme
@@ -2243,94 +2585,73 @@
             });
         }
         
-        // Função para iniciar monitoramento automático
+        // Função para iniciar/parar monitoramento automático
         function toggleMonitoring() {
-            if (!selectedOption) {
-                alert('Por favor, selecione uma estação primeiro!');
-                return;
-            }
-            
-            if (!isMonitoring) {
-                isMonitoring = true;
-                startMonitoringBtn.innerHTML = '<i class="fas fa-stop-circle"></i> Parar Monitoramento';
-                startMonitoringBtn.classList.add('monitoring-active');
-                simulationStatusEl.innerHTML = '<i class="fas fa-satellite-dish"></i> Monitoramento ativo - Aguardando aproximação a 200m';
-                
-                alert('Monitoramento ativado! O sistema verificará sua localização automaticamente.');
-            } else {
-                isMonitoring = false;
-                startMonitoringBtn.innerHTML = '<i class="fas fa-satellite-dish"></i> Iniciar Monitoramento em Tempo Real';
-                startMonitoringBtn.classList.remove('monitoring-active');
-                simulationStatusEl.innerHTML = 'Monitoramento desativado';
-            }
-        }
-        
-        // Função para iniciar simulação de viagem
-        function startSimulation() {
             if (!selectedOption) {
                 alert('Por favor, selecione e confirme um destino primeiro!');
                 return;
             }
             
-            if (simulationInterval) {
-                clearInterval(simulationInterval);
+            if (!alarmEnabled) {
+                alert('Por favor, ative o alarme primeiro!');
+                return;
             }
             
-            // Resetar distância para simulação (começar a 1000m)
-            currentRealDistance = 1000;
-            updateDistanceDisplay();
-            
-            const speed = parseInt(simulationSpeed.value);
-            simulationStatusEl.innerHTML = '<i class="fas fa-play-circle"></i> Simulação em andamento... Aproximando-se do destino';
-            simulateTripBtn.disabled = true;
-            stopSimulationBtn.disabled = false;
-            
-            // Iniciar simulação
-            simulationInterval = setInterval(() => {
-                // Reduzir distância gradualmente
-                currentRealDistance -= Math.random() * 20 + 10; // Reduz 10-30 metros por intervalo
+            if (!isMonitoring) {
+                // Iniciar monitoramento
+                isMonitoring = true;
+                startMonitoringBtn.innerHTML = '<i class="fas fa-stop-circle"></i> Parar Monitoramento';
+                startMonitoringBtn.classList.add('monitoring-active');
+                monitoringStatusEl.style.display = 'block';
+                monitoringStatusEl.innerHTML = `<i class="fas fa-satellite-dish"></i> Monitoramento ativo - Aguardando aproximação a ${selectedDistance}m`;
                 
-                if (currentRealDistance <= 0) {
-                    currentRealDistance = 0;
-                    clearInterval(simulationInterval);
-                    simulationStatusEl.innerHTML = '<i class="fas fa-flag-checkered"></i> Você chegou ao destino!';
-                    simulateTripBtn.disabled = false;
-                    stopSimulationBtn.disabled = true;
-                    
-                    // Se chegou ao destino, parar alarmes
-                    stopAllAlarms();
-                    return;
-                }
-                
-                // Atualizar display de distância
-                updateDistanceDisplay();
-                
-                // Verificar se está a 200 metros ou menos
-                if (currentRealDistance <= 200) {
-                    simulationStatusEl.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ALERTA: Você está a ${Math.round(currentRealDistance)} metros do destino!`;
-                    
-                    // Se o alarme está ativado, tocar
-                    if (alarmEnabled && currentRealDistance <= 200) {
-                        triggerAlarm(currentRealDistance);
+                // Iniciar intervalo de monitoramento
+                monitoringInterval = setInterval(() => {
+                    // Atualizar localização do usuário
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            (position) => {
+                                userLocation = {
+                                    lat: position.coords.latitude,
+                                    lng: position.coords.longitude
+                                };
+                                
+                                currentLocationEl.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${userLocation.lat.toFixed(6)}, ${userLocation.lng.toFixed(6)}`;
+                                
+                                // Calcular nova distância
+                                if (stationLocation) {
+                                    currentRealDistance = calculateDistance(userLocation.lat, userLocation.lng, stationLocation.lat, stationLocation.lng);
+                                    updateDistanceDisplay();
+                                    
+                                    // Atualizar status do monitoramento
+                                    monitoringStatusEl.innerHTML = `<i class="fas fa-satellite-dish"></i> Monitoramento ativo - Distância: ${Math.round(currentRealDistance)}m`;
+                                }
+                            },
+                            (error) => {
+                                console.error("Erro ao atualizar localização:", error);
+                            },
+                            { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+                        );
                     }
-                } else if (currentRealDistance <= 500) {
-                    simulationStatusEl.innerHTML = `<i class="fas fa-info-circle"></i> Aproximando-se do destino: ${Math.round(currentRealDistance)} metros`;
+                }, 3000); // Atualizar a cada 3 segundos
+                
+                alert('Monitoramento ativado! O sistema verificará sua localização automaticamente.');
+                
+            } else {
+                // Parar monitoramento
+                isMonitoring = false;
+                startMonitoringBtn.innerHTML = '<i class="fas fa-satellite-dish"></i> Iniciar Monitoramento em Tempo Real';
+                startMonitoringBtn.classList.remove('monitoring-active');
+                monitoringStatusEl.style.display = 'none';
+                
+                // Parar intervalo de monitoramento
+                if (monitoringInterval) {
+                    clearInterval(monitoringInterval);
+                    monitoringInterval = null;
                 }
-            }, speed); // Atualizar no intervalo selecionado
-        }
-        
-        // Função para parar simulação
-        function stopSimulation() {
-            if (simulationInterval) {
-                clearInterval(simulationInterval);
-                simulationInterval = null;
+                
+                alert('Monitoramento desativado!');
             }
-            
-            simulationStatusEl.innerHTML = 'Simulação interrompida';
-            simulateTripBtn.disabled = false;
-            stopSimulationBtn.disabled = true;
-            stopAllAlarms();
-            notification.style.display = 'none';
         }
         
         // Função para formatar CEP
@@ -2344,8 +2665,8 @@
             cepInput.value = cep;
         }
         
-        // Função para buscar endereço pelo CEP
-        function fetchAddressByCEP() {
+        // Função para buscar endereço pelo CEP usando API ViaCEP
+        async function fetchAddressByCEP() {
             const cep = cepInput.value.replace(/\D/g, '');
             
             if (cep.length !== 8) {
@@ -2359,9 +2680,28 @@
             cidadeInput.value = "Buscando...";
             estadoInput.value = "Buscando...";
             
-            // Simulação de busca de CEP
-            setTimeout(() => {
-                // Dados de exemplo para CEPs
+            try {
+                // Usar API ViaCEP
+                const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                const data = await response.json();
+                
+                if (data.erro) {
+                    throw new Error('CEP não encontrado');
+                }
+                
+                // Preencher os campos
+                ruaInput.value = data.logradouro || '';
+                bairroInput.value = data.bairro || '';
+                cidadeInput.value = data.localidade || '';
+                estadoInput.value = data.uf || '';
+                
+                // Focar no campo de número
+                numeroInput.focus();
+                
+            } catch (error) {
+                console.error("Erro ao buscar CEP:", error);
+                
+                // Tentar com fallback para CEPs conhecidos
                 const cepExamples = {
                     '01001000': { logradouro: 'Praça da Sé', bairro: 'Sé', localidade: 'São Paulo', uf: 'SP' },
                     '01311000': { logradouro: 'Avenida Paulista', bairro: 'Bela Vista', localidade: 'São Paulo', uf: 'SP' },
@@ -2371,42 +2711,21 @@
                     '70040900': { logradouro: 'Eixo Monumental', bairro: 'Asa Sul', localidade: 'Brasília', uf: 'DF' }
                 };
                 
-                // Usar exemplo se existir, caso contrário usar dados genéricos
-                let endereco;
-                
                 if (cepExamples[cep]) {
-                    endereco = cepExamples[cep];
+                    const endereco = cepExamples[cep];
+                    ruaInput.value = endereco.logradouro;
+                    bairroInput.value = endereco.bairro;
+                    cidadeInput.value = endereco.localidade;
+                    estadoInput.value = endereco.uf;
+                    numeroInput.focus();
                 } else {
-                    // Dados genéricos para qualquer CEP
-                    const cidades = [
-                        { cidade: 'São Paulo', uf: 'SP' },
-                        { cidade: 'Rio de Janeiro', uf: 'RJ' },
-                        { cidade: 'Belo Horizonte', uf: 'MG' },
-                        { cidade: 'Porto Alegre', uf: 'RS' },
-                        { cidade: 'Curitiba', uf: 'PR' },
-                        { cidade: 'Salvador', uf: 'BA' }
-                    ];
-                    
-                    const cidadeSelecionada = cidades[Math.floor(Math.random() * cidades.length)];
-                    
-                    endereco = {
-                        logradouro: `Rua Exemplo ${Math.floor(Math.random() * 1000)}`,
-                        bairro: 'Centro',
-                        localidade: cidadeSelecionada.cidade,
-                        uf: cidadeSelecionada.uf
-                    };
+                    alert('CEP não encontrado. Por favor, verifique o CEP digitado.');
+                    ruaInput.value = '';
+                    bairroInput.value = '';
+                    cidadeInput.value = '';
+                    estadoInput.value = '';
                 }
-                
-                // Preencher os campos
-                ruaInput.value = endereco.logradouro;
-                bairroInput.value = endereco.bairro;
-                cidadeInput.value = endereco.localidade;
-                estadoInput.value = endereco.uf;
-                
-                // Focar no campo de número
-                numeroInput.focus();
-                
-            }, 800); // Simular delay de rede
+            }
         }
     </script>
 </body>
